@@ -35,8 +35,11 @@ class Main extends egret.DisplayObjectContainer {
     }
 
     private bg: BackgroundView;
+    private home: HomeView;
 
     private onAddToStage(event: egret.Event) {
+        GameConst.SCENT_WIDTH = this.stage.stageWidth;
+        GameConst.SCENT_HEIGHT = this.stage.stageHeight;
         GameConst.GamePoxX = 3200;
 
         egret.lifecycle.addLifecycleListener((context) => {
@@ -85,7 +88,7 @@ class Main extends egret.DisplayObjectContainer {
    private showHome() {
        this.removeChildren();
        this.addChild(this.bg);
-       // this.addChild(this.home);
+       this.addChild(this.home);
        GameConst.GamePoxX = 0;
        this.bg.movebg();
        // this.addMenu();
@@ -96,7 +99,9 @@ class Main extends egret.DisplayObjectContainer {
      */
     private createGameScene() {
         console.log("cabo createGameScene()");
-        this.bg = new BackgroundView();  
+        this.bg = new BackgroundView();
+        this.home = new HomeView();
+        this.showHome();
     }
 
     /**

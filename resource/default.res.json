@@ -1,23 +1,75 @@
 {
-	"groups":[
-	{
-		"keys":"bg_jpg,egret_icon_png,description_json",
-		"name":"preload"
-	}],
-	"resources":[
-	{
-		"name":"bg_jpg",
-		"type":"image",
-		"url":"assets/bg.jpg"
-	},
-	{
-		"name":"egret_icon_png",
-		"type":"image",
-		"url":"assets/egret_icon.png"
-	},
-	{
-		"name":"description_json",
-		"type":"json",
-		"url":"config/description.json"
-	}]
+	"groups": [
+		{
+			"keys": "description_json,cloud3_png,cloud2_png,cloud4_png,cloud_png,bg_jpg,ft_png,cow_bitcoin_png,cow_ether_png,cow_filecoin_png,cow_own_png,icon_farm_png,icon_home_png",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"name": "description_json",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "cloud3_png",
+			"type": "image",
+			"url": "assets/cloud3.png"
+		},
+		{
+			"name": "cloud2_png",
+			"type": "image",
+			"url": "assets/cloud2.png"
+		},
+		{
+			"name": "cloud4_png",
+			"type": "image",
+			"url": "assets/cloud4.png"
+		},
+		{
+			"name": "cloud_png",
+			"type": "image",
+			"url": "assets/cloud.png"
+		},
+		{
+			"name": "bg_jpg",
+			"type": "image",
+			"url": "assets/bg.jpg"
+		},
+		{
+			"name": "ft_png",
+			"type": "image",
+			"url": "assets/ft.png"
+		},
+		{
+			"name": "cow_bitcoin_png",
+			"type": "image",
+			"url": "assets/cow_bitcoin.png"
+		},
+		{
+			"name": "cow_ether_png",
+			"type": "image",
+			"url": "assets/cow_ether.png"
+		},
+		{
+			"name": "cow_filecoin_png",
+			"type": "image",
+			"url": "assets/cow_filecoin.png"
+		},
+		{
+			"name": "cow_own_png",
+			"type": "image",
+			"url": "assets/cow_own.png"
+		},
+		{
+			"name": "icon_farm_png",
+			"type": "image",
+			"url": "assets/icon_farm.png"
+		},
+		{
+			"name": "icon_home_png",
+			"type": "image",
+			"url": "assets/icon_home.png"
+		}
+	]
 }
