@@ -91,7 +91,7 @@ class Main extends egret.DisplayObjectContainer {
        this.addChild(this.home);
        GameConst.GamePoxX = 0;
        this.bg.movebg();
-       // this.addMenu();
+       this.addMenu();
    }
 
    /**
