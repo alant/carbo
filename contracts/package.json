@@ -1,0 +1,20 @@
+{
+  "name": "coin-cow",
+  "version": "0.0.1",
+  "description": "CoinCow contracts.",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:alant/carbo.git"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test"
+  },
+  "author": "Tal Rasha",
+  "license": "ISC",
+  "dependencies": {
+    "zeppelin-solidity": "^1.10.0"
+  }
+}
