@@ -149,6 +149,32 @@ var Main = (function (_super) {
         // this.addMenu();
     };
     /**
+     * 显示农场
+     * show farm view
+     */
+    Main.prototype.showFarm = function () {
+        console.log("show farm clicked");
+    };
+    /**
+     * 显示菜单
+     * show menu
+     */
+    Main.prototype.addMenu = function () {
+        var farmButton = new egret.Sprite();
+        this.addChild(farmButton);
+        var button1 = this.createBitmapByName("icon_farm_png");
+        farmButton.addChild(button1);
+        farmButton.touchEnabled = true;
+        farmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.showFarm, this);
+        var homeButton = new egret.Sprite();
+        this.addChild(homeButton);
+        homeButton.x = 100;
+        var button2 = this.createBitmapByName("icon_home_png");
+        homeButton.addChild(button2);
+        homeButton.touchEnabled = true;
+        homeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.showHome, this);
+    };
+    /**
      * 创建游戏场景
      * Create a game scene
      */

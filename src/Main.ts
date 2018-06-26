@@ -93,6 +93,35 @@ class Main extends egret.DisplayObjectContainer {
        this.bg.movebg();
        // this.addMenu();
    }
+
+   /**
+    * 显示农场
+    * show farm view
+    */
+   private showFarm() {
+     console.log(`show farm clicked`);
+   }
+    /**
+     * 显示菜单
+     * show menu
+     */
+    private addMenu() {
+        const farmButton = new egret.Sprite();
+        this.addChild(farmButton);
+        const button1:egret.Bitmap = this.createBitmapByName("icon_farm_png");
+        farmButton.addChild(button1);
+        farmButton.touchEnabled = true;
+        farmButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showFarm,this);
+
+        const homeButton = new egret.Sprite();
+        this.addChild(homeButton);
+        homeButton.x = 100;
+        const button2:egret.Bitmap = this.createBitmapByName("icon_home_png");
+        homeButton.addChild(button2);
+        homeButton.touchEnabled = true;
+        homeButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showHome,this);
+    }
+
     /**
      * 创建游戏场景
      * Create a game scene
