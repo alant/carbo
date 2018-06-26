@@ -101,6 +101,12 @@ class Main extends egret.DisplayObjectContainer {
    private showFarm() {
      console.log(`show farm clicked`);
    }
+   
+   private showAccount() {
+       this.removeChildren();
+       this.addChild(this.bg);
+   }
+
     /**
      * 显示菜单
      * show menu
@@ -120,6 +126,15 @@ class Main extends egret.DisplayObjectContainer {
         homeButton.addChild(button2);
         homeButton.touchEnabled = true;
         homeButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showHome,this);
+
+        const accountButton = new egret.Sprite();
+        this.addChild(accountButton);
+        accountButton.x = 200;
+        //TODO: change icon asset
+        const button3:egret.Bitmap = this.createBitmapByName("icon_home_png");
+        accountButton.addChild(button3);
+        accountButton.touchEnabled = true;
+        accountButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showAccount,this);
     }
 
     /**
