@@ -29,6 +29,10 @@
     },
     {
       "name": "promise"
+    },
+    {
+      "name": "web3",
+      "path": "./libs/web3"
     }
   ]
 }

@@ -204,6 +204,7 @@ class Main extends egret.DisplayObjectContainer {
                     "type": "function"
                 }
             ];
+
             const instance = web3.eth.contract(abi).at(address);
             console.log(instance);
             instance.greet(function(err, receipt){
