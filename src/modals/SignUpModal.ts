@@ -29,9 +29,13 @@ class SignUpModal extends eui.Panel implements eui.UIComponent {
 	private signup() {
 		console.log("signup " + this.nickname);
 		const address = "0x5a16ef04f793a5f1878ae451bae06592515bd3c3";
-
-		RES.getResByUrl("contracts/build/contracts/UserInfo.json",function(data){
-			console.log(data);
-            },null, "json");
+		RES.getResByUrl("contracts/build/contract_addresses.json", function(addresses){
+			RES.getResByUrl("contracts/build/contracts/UserInfo.json",function(data){
+				console.log(data, addresses);
+				this.web3.eth.contract(data.abi).at(addresses.userInfo).nameOf(this.web3.eth.defaultAccount, function(err, name){
+					console.log(name);	
+				});
+				}, null, "json");
+		}, null, "json");
 	}
 }
