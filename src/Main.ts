@@ -39,6 +39,7 @@ class Main extends egret.DisplayObjectContainer {
     private farm: FarmView;
     private farmList:FarmListView;
     private members: FarmMemberListView;
+    private menuView:MenuView;
     private web3: any;
     private instance: any;
 
@@ -87,6 +88,8 @@ class Main extends egret.DisplayObjectContainer {
             await RES.loadConfig("resource/default.res.json", "resource/");
             await RES.loadGroup("preload", 0, loadingView);
             this.stage.removeChild(loadingView);
+
+            
         }
         catch (e) {
             console.error(e);
@@ -109,7 +112,7 @@ class Main extends egret.DisplayObjectContainer {
      * 显示主页
      * show home view
      */
-    private showHome() {
+    public showHome() {
         this.removeChildren();
         this.addChild(this.bg);
         this.addChild(this.home);
@@ -122,7 +125,7 @@ class Main extends egret.DisplayObjectContainer {
      * 显示农场
      * show farm view
      */
-    private showFarm() {
+    public showFarm() {
         this.removeChildren();
         this.addChild(this.bg);
         this.addChild(this.farm);
@@ -132,13 +135,13 @@ class Main extends egret.DisplayObjectContainer {
         this.addMenu();
     }
 
-    private showAccount() {
+    public showAccount() {
         this.removeChildren();
         this.addChild(this.bg);
         this.addMenu();
     }
 
-    private showFarmList(){
+    public showFarmList(){
         this.removeChildren();
         if(this.farmList==null){
             this.farmList = new FarmListView();
@@ -155,36 +158,45 @@ class Main extends egret.DisplayObjectContainer {
      * show menu
      */
     private addMenu() {
-        const farmButton = new egret.Sprite();
-        this.addChild(farmButton);
-        const button1:egret.Bitmap = this.createBitmapByName("icon_farmlist_png");
-        farmButton.addChild(button1);
-        farmButton.touchEnabled = true;
-        farmButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showFarm,this);
-
-        const homeButton = new egret.Sprite();
-        this.addChild(homeButton);
-        homeButton.x = 100;
-        const button2:egret.Bitmap = this.createBitmapByName("icon_milkbottle_png");
-        homeButton.addChild(button2);
-        homeButton.touchEnabled = true;
-        homeButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showHome,this);
-
-        const accountButton = new egret.Sprite();
-        this.addChild(accountButton);
-        accountButton.x = 200;
-        //TODO: change icon asset
-        const button3:egret.Bitmap = this.createBitmapByName("icon_profile_png");
-        accountButton.addChild(button3);
-        accountButton.touchEnabled = true;
-        accountButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showAccount,this);
+        if(this.menuView==null){
+            this.menuView = new MenuView(this);
+            this.menuView.x = 0;
+            this.menuView.y = 0;
+        }
+        if(!this.menuView.parent){
+            this.addChild(this.menuView);
+        }
         
-        let farmListbtn = new egret.Sprite();
-        farmListbtn.x = 300;
-        farmListbtn.addChild(this.createBitmapByName("icon_profile_png"));
-        farmListbtn.touchEnabled = true;
-        farmListbtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showFarmList,this);
-        this.addChild(farmListbtn);
+        // const farmButton = new egret.Sprite();
+        // this.addChild(farmButton);
+        // const button1:egret.Bitmap = this.createBitmapByName("icon_farmlist_png");
+        // farmButton.addChild(button1);
+        // farmButton.touchEnabled = true;
+        // farmButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showFarm,this);
+
+        // const homeButton = new egret.Sprite();
+        // this.addChild(homeButton);
+        // homeButton.x = 100;
+        // const button2:egret.Bitmap = this.createBitmapByName("icon_milkbottle_png");
+        // homeButton.addChild(button2);
+        // homeButton.touchEnabled = true;
+        // homeButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showHome,this);
+
+        // const accountButton = new egret.Sprite();
+        // this.addChild(accountButton);
+        // accountButton.x = 200;
+        // //TODO: change icon asset
+        // const button3:egret.Bitmap = this.createBitmapByName("icon_profile_png");
+        // accountButton.addChild(button3);
+        // accountButton.touchEnabled = true;
+        // accountButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showAccount,this);
+        
+        // let farmListbtn = new egret.Sprite();
+        // farmListbtn.x = 300;
+        // farmListbtn.addChild(this.createBitmapByName("icon_profile_png"));
+        // farmListbtn.touchEnabled = true;
+        // farmListbtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showFarmList,this);
+        // this.addChild(farmListbtn);
     }
 
     /**
