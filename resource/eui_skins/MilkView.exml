@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="MilkViewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="16441b2a069" ></w:Config>
+	<e:Rect width="1504" height="556" x="208" y="262" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x2c8ec1" locked="true"/>
+	<e:Label text="奶（币）的种类" x="330" y="330" textColor="0x0a0808"/>
+	<e:Label text="当前奶量（余额）" x="732" y="330" textColor="0x0a0808"/>
+	<e:Label text="积累产奶量" x="1124" y="330" textColor="0x0a0808"/>
+	<e:Label text="操作" x="1464" y="330" textColor="0x0a0808"/>
+	<e:Rect width="1421.64" height="371.45" x="248.54" y="408" anchorOffsetX="0" anchorOffsetY="0" fillColor="0xffffff" locked="true"/>
+	<e:Scroller width="1404" height="348" x="256" y="420">
+		<e:viewport>
+		<e:List  x="0" y="0" itemRendererSkinName="MilkItemViewSkin" anchorOffsetX="0" anchorOffsetY="0"/>
+	</e:viewport>
+	</e:Scroller>
+</e:Skin>
