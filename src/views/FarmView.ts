@@ -16,23 +16,33 @@ class FarmView extends egret.Sprite {
 	private cows: Array<Cow> = [
 		{
 			type: "cow_bitcoin_png",
-			milk: 79
+			milk: 79,
+        	totalMilked: 102.0002,
+        	totalStolen: 3.0123
 		},
 		{
 			type: "cow_ether_png",
-			milk: 50
+			milk: 50,
+			totalMilked: 102.0002,
+        	totalStolen: 3.0123
 		},
 		{
 			type: "cow_filecoin_png",
-			milk: 79
+			milk: 79,
+			totalMilked: 102.0002,
+        	totalStolen: 3.0123
 		},
 		{
 			type: "cow_lama_png",
-			milk: 100
+			milk: 100,
+			totalMilked: 102.0002,
+        	totalStolen: 3.0123
 		},
 		{
 			type: "cow_bitcoin_png",
-			milk: 10
+			milk: 10,
+			totalMilked: 102.0002,
+        	totalStolen: 3.0123
 		}
 	]
 	private async createCows() {
@@ -68,6 +78,13 @@ class FarmView extends egret.Sprite {
 		}
 		milkBar.graphics.endFill();
 		this.addChild(milkBar);
+		// milk bottle
+		const milkBottle:egret.Bitmap = this.createBitmapByName("bottle_png");
+		this.addChild(milkBottle);
+		milkBottle.x = cowX + 320 * cow.milk / 100;
+		milkBottle.y = cowY - 60;
+		milkBottle.width = 20;
+		milkBottle.height = 50;
         console.log(`cow number ${cowIndex} created`);
         // bitcow.addEventListener(egret.TouchEvent.TOUCH_TAP,() => {
         //     console.log(`cow got clicked!`);
@@ -87,7 +104,7 @@ class FarmView extends egret.Sprite {
 	}
     private handleCowClick(cowIndex: number, cowX: number, cowY: number, e: egret.TouchEvent) {
         console.log(`cow ${cowIndex} got clicked!`);
-		if(this.cowDetail) {
+		if(this.cowDetail && this.cowDetail.parent) {
 			this.removeChild(this.cowDetail);
 		}
 		const modal = new CowDetailModal(this.cows[cowIndex]);
