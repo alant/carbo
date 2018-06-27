@@ -2,19 +2,8 @@ class CowDetailModal extends eui.Panel implements  eui.UIComponent {
 	public constructor(cow:Cow) {
 		super();
 		this.cowData = cow;
-		this.initView();
 	}
 	private cowData: Cow;
-
-	private initView() {
-		// draw cow
-		let bitcow = this.createBitmapByName(this.cowData.type);
-		this.addChild(bitcow);
-		bitcow.width = 350;
-		bitcow.height = 250;
-		bitcow.x = 50;
-		bitcow.y = 50;
-	}
 	protected partAdded(partName:string,instance:any):void
 	{
 		super.partAdded(partName,instance);

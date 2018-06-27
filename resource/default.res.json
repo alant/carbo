@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,cow_bitcoin_png,cow_ether_png,cow_filecoin_png,background_cloud1_png,background_cloud2_png,background_cloud3_png,background_cloud4_png,background_front_png,background_mountains_jpg,cow_lama_png,icon_chat_png,icon_farmlist_png,icon_milkbottle_png,icon_profile_png,icon_share_png,icon_squeezedmilk_png,icons_tools_png,background_cloud12_png,background_cloud22_png,background_cloud32_png,background_cloud42_png,background_front2_png,background_mountains2_jpg,cow_lama2_png,icon_chat2_png,icon_farmlist2_png,icon_milkbottle2_png,icon_profile2_png,icon_share2_png,icon_squeezedmilk2_png,icons_tools2_png,button_down_png,button_up_png,checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,thumb_pb_png,track_pb_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,track_sb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,header2_png",
+			"keys": "description_json,cow_bitcoin_png,cow_ether_png,cow_filecoin_png,background_front_png,background_mountains_jpg,cow_lama_png,icon_chat_png,icon_farmlist_png,icon_milkbottle_png,icon_profile_png,icon_share_png,icon_squeezedmilk_png,icons_tools_png,background_front2_png,background_mountains2_jpg,cow_lama2_png,icon_chat2_png,icon_farmlist2_png,icon_milkbottle2_png,icon_profile2_png,icon_share2_png,icon_squeezedmilk2_png,icons_tools2_png,button_down_png,button_up_png,checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,thumb_pb_png,track_pb_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,track_sb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,header2_png,bottle_png,icon_close_png",
 			"name": "preload"
 		}
 	],
@@ -25,26 +25,6 @@
 			"name": "cow_filecoin_png",
 			"type": "image",
 			"url": "assets/cow_filecoin.png"
-		},
-		{
-			"name": "background_cloud1_png",
-			"type": "image",
-			"url": "assets/background_cloud1.png"
-		},
-		{
-			"name": "background_cloud2_png",
-			"type": "image",
-			"url": "assets/background_cloud2.png"
-		},
-		{
-			"name": "background_cloud3_png",
-			"type": "image",
-			"url": "assets/background_cloud3.png"
-		},
-		{
-			"name": "background_cloud4_png",
-			"type": "image",
-			"url": "assets/background_cloud4.png"
 		},
 		{
 			"name": "background_front_png",
@@ -95,26 +75,6 @@
 			"name": "icons_tools_png",
 			"type": "image",
 			"url": "assets/icons_tools.png"
-		},
-		{
-			"name": "background_cloud12_png",
-			"type": "image",
-			"url": "assets/background_cloud1.png"
-		},
-		{
-			"name": "background_cloud22_png",
-			"type": "image",
-			"url": "assets/background_cloud2.png"
-		},
-		{
-			"name": "background_cloud32_png",
-			"type": "image",
-			"url": "assets/background_cloud3.png"
-		},
-		{
-			"name": "background_cloud42_png",
-			"type": "image",
-			"url": "assets/background_cloud4.png"
 		},
 		{
 			"name": "background_front2_png",
@@ -290,6 +250,16 @@
 			"name": "header2_png",
 			"type": "image",
 			"url": "assets/Panel/header.png"
+		},
+		{
+			"name": "bottle_png",
+			"type": "image",
+			"url": "assets/bottle.png"
+		},
+		{
+			"name": "icon_close_png",
+			"type": "image",
+			"url": "assets/icon_close.png"
 		}
 	]
 }
