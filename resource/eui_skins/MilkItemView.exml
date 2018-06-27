@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="MilkItemViewSkin" width="1400" height="100" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="16441bd190f" ></w:Config>
+	<e:Label text="Label" x="46" y="22" anchorOffsetX="0" width="117" anchorOffsetY="0" height="56" verticalAlign="middle" textAlign="center"/>
+	<e:Label text="Label" x="1210" y="22" anchorOffsetX="0" width="117" anchorOffsetY="0" height="56" verticalAlign="middle" textAlign="center"/>
+	<e:Label text="Label" x="822" y="22" anchorOffsetX="0" width="117" anchorOffsetY="0" height="56" verticalAlign="middle" textAlign="center"/>
+	<e:Label text="Label" x="434" y="22" anchorOffsetX="0" width="117" anchorOffsetY="0" height="56" verticalAlign="middle" textAlign="center"/>
+</e:Skin>
