@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="FarmListModalSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" >
+	<w:Config id="16440bfc20c" ></w:Config>
+	<e:Rect width="1920" height="1080" x="0" y="0" fillAlpha="0.6"/>
+	<e:Scroller width="1920" height="861" x="208" y="222">
+		<e:viewport>
+			<e:List id="listview" itemRendererSkinName="FarmListItemSkin" left="28" top="0" width="1920" height="1042">
+				<e:layout>
+					<e:TileLayout rowAlign="top" requestedColumnCount="3" columnAlign="left" orientation="rows" horizontalAlign="center" verticalAlign="middle" paddingRight="20" paddingLeft="20" paddingTop="10" paddingBottom="10" horizontalGap="108" verticalGap="100"/>
+				</e:layout>
+				<e:ArrayCollection>
+					<e:Array>
+						<e:Object location="澳洲肥牛庄园1" farmName="c" owner="Smith" memebers="125" cows="f82"/>
+						<e:Object location="澳洲肥牛庄园2" farmName="c" owner="Smith" memebers="125" cows="f82"/>
+						<e:Object location="澳洲肥牛庄园3" farmName="c" owner="Smith" memebers="125" cows="f82"/>
+						<e:Object location="澳洲肥牛庄园4" farmName="c" owner="Smith" memebers="125" cows="f82"/>
+						<e:Object location="澳洲肥牛庄园5" farmName="c" owner="Smith" memebers="125" cows="f82"/>
+						<e:Object location="澳洲肥牛庄园6" farmName="c" owner="Smith" memebers="125" cows="f82"/>
+					</e:Array>
+				</e:ArrayCollection>
+			</e:List>
+		</e:viewport>
+	</e:Scroller>
+	
+</e:Skin>

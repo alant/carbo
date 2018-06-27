@@ -1,5 +1,10 @@
 {
-  "global": {
-    "globalAutoLayerMarkEnable": true
-  }
+    "global": {
+        "globalAutoLayerMarkEnable": true
+    },
+    "164414fdbd0": {
+        "path": "modals/MenuView.ts",
+        "class": "MenuView",
+        "parentPath": ""
+    }
 }

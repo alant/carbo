@@ -37,6 +37,7 @@ class Main extends egret.DisplayObjectContainer {
     private bg: BackgroundView;
     private home: HomeView;
     private farm: FarmView;
+    private farmList:FarmListView;
     private members: FarmMemberListView;
     private web3: any;
 
@@ -136,6 +137,18 @@ class Main extends egret.DisplayObjectContainer {
         this.addMenu();
     }
 
+    private showFarmList(){
+        this.removeChildren();
+        if(this.farmList==null){
+            this.farmList = new FarmListView();
+        }
+       
+        GameConst.GamePoxX = 1800;
+        this.addChild(this.bg);
+        this.bg.movebg();
+        this.addChild(this.farmList);
+        this.addMenu();
+    }
     /**
      * 显示菜单
      * show menu
@@ -164,6 +177,13 @@ class Main extends egret.DisplayObjectContainer {
         accountButton.addChild(button3);
         accountButton.touchEnabled = true;
         accountButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showAccount,this);
+        
+        let farmListbtn = new egret.Sprite();
+        farmListbtn.x = 300;
+        farmListbtn.addChild(this.createBitmapByName("icon_profile_png"));
+        farmListbtn.touchEnabled = true;
+        farmListbtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showFarmList,this);
+        this.addChild(farmListbtn);
     }
 
     /**
