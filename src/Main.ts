@@ -40,6 +40,7 @@ class Main extends egret.DisplayObjectContainer {
     private farmList:FarmListView;
     private members: FarmMemberListView;
     private menuView:MenuView;
+    private marketplace:Marketplace;
     private web3: any;
     private instance: any;
 
@@ -138,6 +139,9 @@ class Main extends egret.DisplayObjectContainer {
     public showAccount() {
         this.removeChildren();
         this.addChild(this.bg);
+        this.addChild(this.members);
+        GameConst.GamePoxX = 2000;
+        this.bg.movebg();
         this.addMenu();
     }
 
@@ -146,11 +150,23 @@ class Main extends egret.DisplayObjectContainer {
         if(this.farmList==null){
             this.farmList = new FarmListView();
         }
+        GameConst.GamePoxX = 1500;
+        this.addChild(this.bg);
+        this.bg.movebg();
+        this.addChild(this.farmList);
+        this.addMenu();
+    }
+
+    public showMarket(){
+        this.removeChildren();
+        if(this.marketplace==null){
+            this.marketplace = new Marketplace();
+        }
        
         GameConst.GamePoxX = 1800;
         this.addChild(this.bg);
         this.bg.movebg();
-        this.addChild(this.farmList);
+        this.addChild(this.marketplace);
         this.addMenu();
     }
     /**
