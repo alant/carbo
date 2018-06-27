@@ -25,6 +25,11 @@ module.exports = async function(deployer) {
     const testEthCow = await deployer.deploy(TestCow, coinCowCore.address, farm.address, 'Test ETH Cow', 'TH/s', 'POW', 'ETH');
     const testLamaCow = await deployer.deploy(TestCow, coinCowCore.address, farm.address, 'Test LAMA Cow', 'CCC', 'PLATFORM', 'ETH');
 
+    await coinCowCore.registerCowInterface(testBtcCow.address);
+    await coinCowCore.registerCowInterface(testBchCow.address);
+    await coinCowCore.registerCowInterface(testEthCow.address);
+    await coinCowCore.registerCowInterface(testLamaCow.address);
+
     fs.writeFileSync(__dirname + '/../build/contract_addresses.json', JSON.stringify({
         userInfo: userInfo.address,
         coinCowCore: coinCowCore.address,

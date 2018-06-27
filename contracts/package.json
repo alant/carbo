@@ -15,6 +15,7 @@
   "author": "Tal Rasha",
   "license": "ISC",
   "dependencies": {
+    "truffle-privatekey-provider": "^0.1.0",
     "zeppelin-solidity": "^1.10.0"
   }
 }
