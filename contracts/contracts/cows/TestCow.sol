@@ -85,21 +85,3 @@ contract TestCow is CowBase {
         emit CowCreated(tokenId, cow.contractSize);
     }
 }
-
-contract TestPowCow is TestCow {
-    constructor(address coreAddress, address farmAddress) public TestCow(coreAddress, farmAddress, "Test PoW Cow", "TH/s", "POW", "TPOW") {
-
-    }
-}
-
-contract TestPosCow is TestCow {
-    constructor(address coreAddress, address farmAddress) public TestCow(coreAddress, farmAddress, "Test PoS Cow", "TPOS", "POS", "TPOS") {
-
-    }
-}
-
-contract TestPlatformCow is TestCow {
-    constructor(address coreAddress, address farmAddress) public TestCow(coreAddress, farmAddress, "Test Platform Cow", "CCC", "PLATFORM", "CCC") {
-
-    }
-}
