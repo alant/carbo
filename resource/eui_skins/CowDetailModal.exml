@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="CowDetailModalSkin" minHeight="230" minWidth="450" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-    <e:Image left="0" right="1" bottom="0"  top="0" source="border_png" scale9Grid="2,2,12,12"  anchorOffsetY="0" anchorOffsetX="0" fillMode="scale" width="940" height="550"/>
-	<e:Button id="squeezeButton" label="Squeeze!" bottom="45" horizontalCenter="-242" height="60" anchorOffsetX="0" width="263"/>
-    <e:Button id="sellButton" label="Sell" bottom="45" horizontalCenter="172" height="60" anchorOffsetX="0" width="263"/>
-	<e:Label text="Enter a nickname:" x="453" y="40" textColor="0x000000" anchorOffsetX="0" width="210" anchorOffsetY="0" height="49" verticalAlign="middle" textAlign="right" size="24"/>
-	<e:Label text="Enter a nickname:" x="453" y="89" textColor="0x000000" anchorOffsetX="0" width="210" anchorOffsetY="0" height="49" verticalAlign="middle" textAlign="right" size="24"/>
-	<e:Rect width="350" height="250" x="50" y="50" anchorOffsetX="0" anchorOffsetY="0" fillColor="0xcdf3fa"/>
-	<w:Config id="164409a89bd" ></w:Config>
+<e:Skin class="CowDetailModalSkin" minHeight="230" minWidth="450" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" height="880">
+    <e:Image left="0" right="1" bottom="0"  top="0" source="border_png" scale9Grid="2,2,12,12"  anchorOffsetY="0" anchorOffsetX="0" fillMode="scale" width="1200" height="880"/>
+	<e:Button id="squeezeButton" label="Squeeze!" height="100" anchorOffsetX="0" width="300" x="192" y="700"/>
+    <e:Button id="sellButton" label="Sell" height="100" anchorOffsetX="0" width="300" y="700" x="663"/>
+	<e:Label text="{cowData.milk}" x="708" y="114.5" textColor="0x000000" anchorOffsetX="0" width="210" anchorOffsetY="0" height="49" verticalAlign="middle" textAlign="left" size="24"/>
+	<e:Label x="486" y="115.5" textColor="0x000000" anchorOffsetX="0" width="210" anchorOffsetY="0" height="49" verticalAlign="middle" textAlign="right" size="24" text="Milk Percent:"/>
+	<e:Label text="Total Milked:" x="486" y="164.5" textColor="0x000000" anchorOffsetX="0" width="210" anchorOffsetY="0" height="49" verticalAlign="middle" textAlign="right" size="24"/>
+	<e:Label text="Total Stolen:" x="486" y="214" textColor="0x000000" anchorOffsetX="0" width="210" anchorOffsetY="0" height="49" verticalAlign="middle" textAlign="right" size="24"/>
+	<e:Label text="{cowData.totalMilked}" x="708" y="164.5" textColor="0x000000" anchorOffsetX="0" width="264" anchorOffsetY="0" height="49" verticalAlign="middle" textAlign="left" size="24"/>
+	<e:Label x="708" y="214" textColor="0x000000" anchorOffsetX="0" width="264" anchorOffsetY="0" height="49" verticalAlign="middle" textAlign="left" size="24" text="{cowData.totalStolen}"/>
+	<e:Rect width="350" height="250" x="100" y="100" anchorOffsetX="0" anchorOffsetY="0" fillColor="0xcdf3fa"/>
+	<e:Image id="closeButton" width="100" height="100" x="1002" y="113.5" source="icon_close_png"/>
+	<e:Image width="350" height="250" x="100" y="100" anchorOffsetX="0" anchorOffsetY="0" source="{cowData.type}"/>
+	<w:Config id="16440842ec6" ></w:Config>
 </e:Skin>
