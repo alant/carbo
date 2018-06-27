@@ -37,13 +37,15 @@ class Main extends egret.DisplayObjectContainer {
     private bg: BackgroundView;
     private home: HomeView;
     private farm: FarmView;
+    private farmList:FarmListView;
     private members: FarmMemberListView;
     private web3: any;
+    private instance: any;
 
     private onAddToStage(event: egret.Event) {
         GameConst.SCENT_WIDTH = this.stage.stageWidth;
         GameConst.SCENT_HEIGHT = this.stage.stageHeight;
-        GameConst.GamePoxX = 3200;
+        GameConst.GamePoxX = 0;
 
         egret.lifecycle.addLifecycleListener((context) => {
             // custom lifecycle plugin
@@ -124,8 +126,8 @@ class Main extends egret.DisplayObjectContainer {
         this.removeChildren();
         this.addChild(this.bg);
         this.addChild(this.farm);
+        GameConst.GamePoxX = 2000;
         this.addChild(this.members);
-        GameConst.GamePoxX = 3200;
         this.bg.movebg();
         this.addMenu();
     }
@@ -136,6 +138,18 @@ class Main extends egret.DisplayObjectContainer {
         this.addMenu();
     }
 
+    private showFarmList(){
+        this.removeChildren();
+        if(this.farmList==null){
+            this.farmList = new FarmListView();
+        }
+       
+        GameConst.GamePoxX = 1800;
+        this.addChild(this.bg);
+        this.bg.movebg();
+        this.addChild(this.farmList);
+        this.addMenu();
+    }
     /**
      * 显示菜单
      * show menu
@@ -164,6 +178,13 @@ class Main extends egret.DisplayObjectContainer {
         accountButton.addChild(button3);
         accountButton.touchEnabled = true;
         accountButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showAccount,this);
+        
+        let farmListbtn = new egret.Sprite();
+        farmListbtn.x = 300;
+        farmListbtn.addChild(this.createBitmapByName("icon_profile_png"));
+        farmListbtn.touchEnabled = true;
+        farmListbtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showFarmList,this);
+        this.addChild(farmListbtn);
     }
 
     /**
@@ -172,56 +193,12 @@ class Main extends egret.DisplayObjectContainer {
      */
     private createGameScene() {
         console.log("cabo createGameScene()");
+        this.getWeb3Instance(); 
         this.bg = new BackgroundView();
-        this.home = new HomeView();
+        this.home = new HomeView(this.web3);
         this.farm = new FarmView();
         this.members = new FarmMemberListView();
         this.showHome();
-
-        var web3Provider;
-        if (typeof window['web3'] !== 'undefined') {
-            console.log("nice web3Provider set");
-            web3Provider = window['web3'].currentProvider;
-            this.web3  = new window["Web3"](web3Provider);
-            let web3 = this.web3;
-            web3.eth.defaultAccount = web3.eth.accounts[0];
-            const address = "0x5a16ef04f793a5f1878ae451bae06592515bd3c3";
-            console.log(`defaultAcct: ${web3.eth.defaultAccount}`);
-            const abi = [
-                {
-                    "inputs": [],
-                    "payable": false,
-                    "stateMutability": "nonpayable",
-                    "type": "constructor"
-                },
-                {
-                    "constant": true,
-                    "inputs": [],
-                    "name": "greet",
-                    "outputs": [
-                        {
-                            "name": "",
-                            "type": "bytes32"
-                        }
-                    ],
-                    "payable": false,
-                    "stateMutability": "view",
-                    "type": "function"
-                }
-            ];
-
-            const instance = web3.eth.contract(abi).at(address);
-            console.log(instance);
-            instance.greet(function(err, receipt){
-                // console.log(arguments);
-                // should be getting "greetings citizen" in console from the contract
-                console.log(`receipt: ${web3.toAscii(receipt)}`);
-            });
-        }else{
-            console.log("web3 provider not found!");
-            // web3Provider = new window["Web3"].providers.HttpProvider("http://119.29.129.14:8545");
-        }
-
     }
 
     /**
@@ -234,4 +211,21 @@ class Main extends egret.DisplayObjectContainer {
         result.texture = texture;
         return result;
     }
+
+    private getWeb3Instance() {
+        var web3Provider;
+        if (typeof window['web3'] !== 'undefined') {
+            console.log("nice web3Provider set");
+            web3Provider = window['web3'].currentProvider;
+            this.web3  = new window["Web3"](web3Provider);
+            let web3 = this.web3;
+            web3.eth.defaultAccount = web3.eth.accounts[0];
+            const address = "0x5a16ef04f793a5f1878ae451bae06592515bd3c3";
+            console.log(`defaultAcct: ${web3.eth.defaultAccount}`);
+            console.log(this.instance);
+        } else {
+            console.log("web3 provider not found!");
+        }
+    }
+
 }

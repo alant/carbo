@@ -21,23 +21,6 @@ class BackgroundView extends egret.Sprite {
         this.ft.height = stageH;
         this.posX = GameConst.GamePoxX;
         this.ft.x = -this.posX;
-        // draw cloud
-        const cloud1 = this.createBitmapByName("background_cloud1_png");
-        this.addChild(cloud1);
-        cloud1.x = 200;
-        cloud1.y = 100;
-        const cloud2 = this.createBitmapByName("background_cloud2_png");
-        this.addChild(cloud2);
-        cloud2.x = 500;
-        cloud2.y = 150;
-        const cloud3 = this.createBitmapByName("background_cloud3_png");
-        this.addChild(cloud3);
-        cloud3.x = 1200;
-        cloud3.y = 130;
-        const cloud4 = this.createBitmapByName("background_cloud4_png");
-        this.addChild(cloud4);
-        cloud4.x = 1600;
-        cloud4.y = 200;
 		console.log("bg rendered");
     }
     public movebg():void {
