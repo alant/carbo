@@ -27,7 +27,7 @@ class FarmView extends egret.Sprite {
 			milk: 79
 		},
 		{
-			type: "cow_own_png",
+			type: "cow_lama_png",
 			milk: 100
 		},
 		{
