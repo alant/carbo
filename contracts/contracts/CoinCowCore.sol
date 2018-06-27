@@ -4,6 +4,8 @@ import "./CoinCow721.sol";
 import "./cows/CowInterface.sol";
 
 contract CoinCowCore is CoinCow721 {
+    event Birth(address creator, uint256 tokenId);
+
     mapping(address => bool) registeredCowInterface;
 
     constructor() public {
@@ -28,5 +30,6 @@ contract CoinCowCore is CoinCow721 {
         require(cowInterface.coinCowAddress() == address(this));
 
         tokenId = cows.push(Cow(msg.sender, uint64(now))) - 1;
+        emit Birth(msg.sender, tokenId);
     }
 }
