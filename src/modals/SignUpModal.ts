@@ -1,7 +1,11 @@
 class SignUpModal extends eui.Panel implements eui.UIComponent {
-	public constructor() {
+	private web3:any;
+
+	public constructor(web3: any) {
 		super();
+		this.web3 = web3;
 	}
+	
 	public signupButton: eui.Button;
 	public inputNickname: eui.TextInput;
 	public nickname: string;
@@ -24,5 +28,10 @@ class SignUpModal extends eui.Panel implements eui.UIComponent {
 	}
 	private signup() {
 		console.log("signup " + this.nickname);
+		const address = "0x5a16ef04f793a5f1878ae451bae06592515bd3c3";
+
+		RES.getResByUrl("contracts/build/contracts/UserInfo.json",function(data){
+			console.log(data);
+            },null, "json");
 	}
 }

@@ -35,17 +35,35 @@ class LoadingUI extends egret.Sprite implements RES.PromiseTaskReporter {
     }
 
     private textField: egret.TextField;
+    private cow: egret.Bitmap;
+    private cowUrl = "resource/assets/cow_bitcoin.png";
 
     private createView(): void {
         this.textField = new egret.TextField();
         this.addChild(this.textField);
-        this.textField.y = 300;
+        this.textField.x = GameConst.SCENT_WIDTH / 2 - 240;
+        this.textField.y = GameConst.SCENT_HEIGHT / 2 + 150;
         this.textField.width = 480;
         this.textField.height = 100;
         this.textField.textAlign = "center";
+
+        const imageLoader:egret.ImageLoader = new egret.ImageLoader();
+        imageLoader.addEventListener(egret.Event.COMPLETE,this.loadCompleteHandler,this);
+        imageLoader.load(this.cowUrl);
+
     }
 
     public onProgress(current: number, total: number): void {
-        this.textField.text = `Loading...${current}/${total}`;
+        this.textField.text = `CoinCow is Loading... ${current}/${total}`;
+    }
+
+    private loadCompleteHandler(event:egret.Event):void {
+        var imageLoader = <egret.ImageLoader>event.currentTarget;
+        let texture = new egret.Texture();
+        texture._setBitmapData(imageLoader.data);
+        this.cow = new egret.Bitmap(texture);
+        this.addChild(this.cow);
+        this.cow.x =  GameConst.SCENT_WIDTH / 2 - 175;
+        this.cow.y = GameConst.SCENT_HEIGHT / 2 - 150;
     }
 }

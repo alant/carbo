@@ -1,20 +1,21 @@
 {
-    "global": {
-        "globalAutoLayerMarkEnable": true
-    },
-    "164414fdbd0": {
-        "path": "modals/MenuView.ts",
-        "class": "MenuView",
-        "parentPath": ""
-    },
-    "164418676eb": {
-        "path": "modals/Marketplace.ts",
-        "class": "Marketplace",
-        "parentPath": ""
-    },
-    "164418864b8": {
-        "path": "modals/MarketplaceItem.ts",
-        "class": "MarketplaceItem",
-        "parentPath": ""
+  "global": {
+    "globalAutoLayerMarkEnable": true,
+    "globalBindingDataTestObj": []
+  },
+  "16440842ec6": {
+    "bindingDataTestObj": [],
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "useBgImage": true,
+    "useBgColor": true,
+    "backgroundAlpha": 100
+  },
+  "164414fdbd0": {
+      "path": "modals/MenuView.ts",
+      "class": "MenuView",
+      "parentPath": ""
     }
 }
