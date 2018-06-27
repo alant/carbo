@@ -9,7 +9,7 @@
 		"libs/web3/web3.js"
 	],
 	"game": [
-		"bin-debug/modals/MenuView.js",
+		"bin-debug/modals/SignUpModal.js",
 		"bin-debug/AssetAdapter.js",
 		"bin-debug/Main.js",
 		"bin-debug/Platform.js",
@@ -17,10 +17,10 @@
 		"bin-debug/modals/CowDetailModal.js",
 		"bin-debug/modals/FarmListItem.js",
 		"bin-debug/modals/FarmListModal.js",
-		"bin-debug/modals/Marketplace.js",
 		"bin-debug/modals/MarketplaceItem.js",
+		"bin-debug/modals/MenuView.js",
+		"bin-debug/modals/MilkItemView.js",
 		"bin-debug/LoadingUI.js",
-		"bin-debug/modals/SignUpModal.js",
 		"bin-debug/utils/Cow.js",
 		"bin-debug/utils/FarmMember.js",
 		"bin-debug/utils/GameConst.js",
@@ -29,6 +29,7 @@
 		"bin-debug/views/FarmMemberListView.js",
 		"bin-debug/views/FarmView.js",
 		"bin-debug/views/HomeView.js",
-		"bin-debug/views/MarketplaceView.js"
+		"bin-debug/views/Marketplace.js",
+		"bin-debug/views/MilkView.js"
 	]
 }

@@ -2,27 +2,26 @@ class MenuView extends eui.Component implements  eui.UIComponent {
 	public marketplaceBtn:eui.Button;
 	public allFarmsBtn:eui.Button;
 	public myFarmBtn:eui.Button;
-	public gotMilkBtn:eui.Button;
+	public myMilkBtn:eui.Button;
 	public shareBtn:eui.Button;
-	private main:Main;
-	public constructor(main:Main) {
+	public constructor() {
 		super();
-		this.main = main;
 	}
 
 	protected partAdded(partName:string,instance:any):void
 	{
 		super.partAdded(partName,instance);
+		const main:Main = GameConst.GameInst;
 		if(instance == this.marketplaceBtn){
-			this.marketplaceBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.main.showMarket,this.main);
+			this.marketplaceBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,main.showMarket,main);
 		}else if (instance ==this.allFarmsBtn ){
-			this.allFarmsBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.main.showFarmList,this.main);
+			this.allFarmsBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,main.showFarmList,main);
 		}else if (instance ==this.myFarmBtn ){
-			this.myFarmBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.main.showFarm,this.main);
-		}else if (instance ==this.gotMilkBtn ){
-			this.gotMilkBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.main.showFarm,this.main);
+			this.myFarmBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,main.showFarm,main);
+		}else if (instance ==this.myMilkBtn ){
+			this.myMilkBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,main.showMyMilk,main);
 		}else if (instance ==this.shareBtn ){
-			this.shareBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.main.showAccount,this.main);
+			this.shareBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,main.showAccount,main);
 		}
 	}
 

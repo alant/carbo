@@ -32,11 +32,13 @@ class Main extends egret.DisplayObjectContainer {
     public constructor() {
         super();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
+        GameConst.GameInst = this;
     }
 
     private bg: BackgroundView;
     private home: HomeView;
     private farm: FarmView;
+    private mymilk: MilkView;
     private farmList:FarmListView;
     private members: FarmMemberListView;
     private menuView:MenuView;
@@ -145,6 +147,15 @@ class Main extends egret.DisplayObjectContainer {
         this.addMenu();
     }
 
+    public showMyMilk() {
+        this.removeChildren();
+        this.addChild(this.bg);
+        this.addChild(this.mymilk);
+        GameConst.GamePoxX = 2500;
+        this.bg.movebg();
+        this.addMenu();
+    }
+
     public showFarmList(){
         this.removeChildren();
         if(this.farmList==null){
@@ -175,7 +186,7 @@ class Main extends egret.DisplayObjectContainer {
      */
     private addMenu() {
         if(this.menuView==null){
-            this.menuView = new MenuView(this);
+            this.menuView = new MenuView();
             this.menuView.x = 0;
             this.menuView.y = 0;
         }
@@ -226,6 +237,7 @@ class Main extends egret.DisplayObjectContainer {
         this.home = new HomeView(this.web3);
         this.farm = new FarmView();
         this.members = new FarmMemberListView();
+        this.mymilk = new MilkView();
         this.showHome();
     }
 

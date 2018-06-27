@@ -4,22 +4,18 @@
 	<e:Rect width="1920" height="1080" x="0" y="0" fillAlpha="0.6"/>
 	<e:Scroller width="1920" height="861" x="208" y="222">
 		<e:viewport>
-			<e:List id="listview" itemRendererSkinName="MarketplaceItemSkin" left="28" top="0" width="1920" height="1042">
+			<e:List id="listview" itemRendererSkinName="MarketplaceItemSkin" left="0" top="0" width="1518" height="1042" anchorOffsetX="0">
 				<e:layout>
 					<e:TileLayout rowAlign="top" requestedColumnCount="3" columnAlign="left" orientation="rows" horizontalAlign="center" verticalAlign="middle" paddingRight="20" paddingLeft="20" paddingTop="10" paddingBottom="10" horizontalGap="108" verticalGap="100"/>
 				</e:layout>
 				<e:ArrayCollection>
 					<e:Array>
-						<e:Object type="澳洲肥牛庄园1" price="c" breakevendays="Smith" validdays="125"/>
-						<e:Object type="澳洲肥牛庄园1" price="c" breakevendays="Smith" validdays="125"/>
-						<e:Object type="澳洲肥牛庄园1" price="c" breakevendays="Smith" validdays="125"/>
-						<e:Object type="澳洲肥牛庄园1" price="c" breakevendays="Smith" validdays="125"/>
-						<e:Object type="澳洲肥牛庄园1" price="c" breakevendays="Smith" validdays="125"/>
-						<e:Object type="澳洲肥牛庄园1" price="c" breakevendays="Smith" validdays="125"/>
-						<e:Object type="澳洲肥牛庄园1" price="c" breakevendays="Smith" validdays="125"/>
-						<e:Object type="澳洲肥牛庄园1" price="c" breakevendays="Smith" validdays="125"/>
+						<e:Object type="cow_bitcoin_png" price="1 Ether" breakevendays="Smith" validdays="125" name="Bitcoin Cow1"/>
+						<e:Object type="cow_ether_png" price="2 Ether" breakevendays="Smith" validdays="125" name="Ether Cow2"/>
+						<e:Object type="cow_lama_png" price="3 Ether" breakevendays="Smith" validdays="125" name="File Coin Cow3"/>
 					</e:Array>
 				</e:ArrayCollection>
+
 			</e:List>
 		</e:viewport>
 	</e:Scroller>

@@ -37,9 +37,9 @@ class SignUpModal extends eui.Panel implements eui.UIComponent {
 					const name = this.web3.toUtf8(nameBytes);
 					console.log(name);
 					if (!name) {
-						UserInfoInstance.register(this.web3.fromUtf8('test'), 0x0, console.log);
+						UserInfoInstance.register(this.web3.fromUtf8(this.nickname), 0x0, console.log);
 					} else {
-
+						GameConst.GameInst.showFarm();
 					}	
 				});
 				}, null, "json");
