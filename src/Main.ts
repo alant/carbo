@@ -138,6 +138,9 @@ class Main extends egret.DisplayObjectContainer {
     public showAccount() {
         this.removeChildren();
         this.addChild(this.bg);
+        this.addChild(this.members);
+        GameConst.GamePoxX = 2000;
+        this.bg.movebg();
         this.addMenu();
     }
 
@@ -146,8 +149,7 @@ class Main extends egret.DisplayObjectContainer {
         if(this.farmList==null){
             this.farmList = new FarmListView();
         }
-       
-        GameConst.GamePoxX = 1800;
+        GameConst.GamePoxX = 1500;
         this.addChild(this.bg);
         this.bg.movebg();
         this.addChild(this.farmList);
