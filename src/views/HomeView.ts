@@ -9,17 +9,16 @@ class HomeView extends egret.Sprite {
 	}
     private initView() {
 		const label = new egret.TextField(); 
-		label.text = "Welcome to Coin Farm"; 
+		label.text = "Welcome to CoinCow"; 
 		label.textColor = 0xFFFFFF;
-        label.bold = true;
-        label.size = 60;
+        label.size = 100;
 		this.addChild(label);
 		label.x = GameConst.SCENT_WIDTH / 2 - 300;
-		label.y = GameConst.SCENT_HEIGHT / 2;
+		label.y = GameConst.SCENT_HEIGHT / 2 - 200;
         // add button
         var button = new eui.Button();
-        button.width = 200;
-        button.height = 50;
+        button.width = 500;
+        button.height = 60;
         button.x = GameConst.SCENT_WIDTH / 2 - 100;
         button.y = GameConst.SCENT_HEIGHT / 2 + 100;
         button.label = "Start Mooring";
@@ -29,6 +28,10 @@ class HomeView extends egret.Sprite {
 
     private showSignUpModal() {
         console.log("click");
+        const modal = new SignUpModal();
+        modal.x = GameConst.SCENT_WIDTH / 2 - 570;
+        modal.y = GameConst.SCENT_HEIGHT / 2 - 270;
+        this.addChild(modal);
     }
 
 	/**

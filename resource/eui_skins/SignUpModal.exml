@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="SignUpModalSkin" minHeight="230" minWidth="450" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+    <e:Image left="0" right="1" bottom="0"  top="0" source="border_png" scale9Grid="2,2,12,12"  anchorOffsetY="0" anchorOffsetX="0" fillMode="scale" width="940" height="550"/>
+    <e:Button id="signupButton" label="Sign Up" bottom="54" horizontalCenter="0.5" height="60" anchorOffsetX="0" width="500"/>
+	<e:TextInput id="inputNickname" width="712" height="51" x="138.5" y="249.5" anchorOffsetX="0" anchorOffsetY="0" enabled="true"/>
+	<e:Label text="Enter a nickname:" x="262" y="146" textColor="0x000000" anchorOffsetX="0" width="447" anchorOffsetY="0" height="49" verticalAlign="middle" textAlign="center"/>
+	<e:Image width="50" height="50" x="87" y="249" anchorOffsetX="0" anchorOffsetY="0" source="person_icon_png"/>
+	<w:Config id="1643ffadc70" ></w:Config>
+</e:Skin>

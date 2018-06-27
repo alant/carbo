@@ -58,6 +58,11 @@ class Main extends egret.DisplayObjectContainer {
         egret.lifecycle.onResume = () => {
             egret.ticker.resume();
         }
+        //inject the custom material parser
+        //注入自定义的素材解析器
+        let assetAdapter = new AssetAdapter();
+        egret.registerImplementation("eui.IAssetAdapter", assetAdapter);
+        egret.registerImplementation("eui.IThemeAdapter", new ThemeAdapter());
 
         this.runGame().catch(e => {
             console.log(e);
@@ -170,9 +175,6 @@ class Main extends egret.DisplayObjectContainer {
         this.showHome();
         this.farm = new FarmView();
 
-        // var Web3 = require('web3');
-        // var web3 = new Web3();
-        // web3.setProvider(new web3.providers.HttpProvider("http://localhost:8545"));
         var web3Provider;
         if (typeof window['web3'] !== 'undefined') {
             console.log("nice web3Provider set");
@@ -209,6 +211,7 @@ class Main extends egret.DisplayObjectContainer {
             console.log(instance);
             instance.greet(function(err, receipt){
                 // console.log(arguments);
+                // should be getting "greetings citizen" in console from the contract
                 console.log(`receipt: ${web3.toAscii(receipt)}`);
             });
         }else{

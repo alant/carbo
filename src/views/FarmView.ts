@@ -7,7 +7,7 @@ class FarmView extends egret.Sprite {
 		super();
 		this.initView();
 	}
-
+	private cowDetail: CowDetailModal;
 	private initView() {
 		this.createCows().catch(e => {
 			console.log(e);
@@ -59,7 +59,7 @@ class FarmView extends egret.Sprite {
 		milkBar.graphics.drawCircle(cowX + 15, cowY - 35, 15);
 		milkBar.graphics.drawCircle(cowX + 335, cowY - 35, 15);
 		milkBar.graphics.endFill();
-		const fillColor = cow.milk < 100 ? 0x0000ff : 0xff0000;
+		const fillColor = cow.milk < 100 ? 0xae99cf : 0xec3333;
 		milkBar.graphics.beginFill( fillColor, cow.milk/100);
 		milkBar.graphics.drawCircle(cowX + 15, cowY - 35, 15);
 		milkBar.graphics.drawRect( cowX + 15, cowY - 50, 320 * cow.milk / 100, 30 );
@@ -73,7 +73,7 @@ class FarmView extends egret.Sprite {
         //     console.log(`cow got clicked!`);
         // },this);
         bitcow.touchEnabled = true;
-        bitcow.addEventListener(egret.TouchEvent.TOUCH_TAP,this.handleCowClick.bind(this, cowIndex),this);
+        bitcow.addEventListener(egret.TouchEvent.TOUCH_TAP,this.handleCowClick.bind(this, cowIndex, cowX, cowY),this);
 	}
 	/**
 	* 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
@@ -85,8 +85,15 @@ class FarmView extends egret.Sprite {
 		result.texture = texture;
 		return result;
 	}
-    private handleCowClick(cowIndex: number, e: egret.TouchEvent) {
+    private handleCowClick(cowIndex: number, cowX: number, cowY: number, e: egret.TouchEvent) {
         console.log(`cow ${cowIndex} got clicked!`);
-        // console.log(`cow ${cowIndex} got clicked!`);
+		if(this.cowDetail) {
+			this.removeChild(this.cowDetail);
+		}
+		const modal = new CowDetailModal(this.cows[cowIndex]);
+		modal.x = GameConst.SCENT_WIDTH / 2 - 570;
+        modal.y = GameConst.SCENT_HEIGHT / 2 - 270;
+		this.cowDetail = modal;
+		this.addChild(this.cowDetail);
     }
 }
