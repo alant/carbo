@@ -1,10 +1,13 @@
 pragma solidity ^0.4.23;
 
 import "./CoinCow721.sol";
+import "./AuctionHouse.sol";
 import "./cows/CowInterface.sol";
 
 contract CoinCowCore is CoinCow721 {
     event Birth(address creator, uint256 tokenId);
+
+    AuctionHouse public auctionHouse;
 
     mapping(address => bool) registeredCowInterface;
 
@@ -13,7 +16,7 @@ contract CoinCowCore is CoinCow721 {
         cooAddress = msg.sender;
     }
 
-    function registerCowInterface(address cowInterfaceAddress) public onlyCOO {
+    function registerCowInterface(address cowInterfaceAddress) public onlyCEO {
         require(!registeredCowInterface[cowInterfaceAddress]);
 
         CowInterface cowInterface = CowInterface(cowInterfaceAddress);
@@ -23,7 +26,7 @@ contract CoinCowCore is CoinCow721 {
         registeredCowInterface[cowInterface] = true;
     }
 
-    function createCow() external returns (uint256 tokenId) {
+    function createCow() external whenNotPaused returns (uint256 tokenId) {
         CowInterface cowInterface = CowInterface(msg.sender);
         require(cowInterface.implementsCow());
         require(cowInterface.enabled());
@@ -31,5 +34,19 @@ contract CoinCowCore is CoinCow721 {
 
         tokenId = cows.push(Cow(msg.sender, uint64(now))) - 1;
         emit Birth(msg.sender, tokenId);
+    }
+
+    function setAuctionHouse(address _address) public onlyCEO {
+        AuctionHouse candidateContract = AuctionHouse(_address);
+        require(candidateContract.isAuctionHouse());
+
+        auctionHouse = candidateContract;
+    }
+
+    function createAuction(uint256 cowId, uint256 price) public whenNotPaused {
+        require(ownerOf(cowId) == msg.sender);
+
+        cowIndexToApproved[cowId] = auctionHouse;
+        auctionHouse.createAuction(cowId, price, msg.sender);
     }
 }
