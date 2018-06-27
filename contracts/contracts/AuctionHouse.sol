@@ -33,7 +33,22 @@ contract AuctionHouse is AccessControl {
         return true;
     }
 
-    function createAuction(uint256 tokenId, uint256 price, address seller) public whenNotPaused canBeStoredWith128Bits(price) {
+    function isOnAuction(uint256 tokenId) public view returns(bool) {
+        return tokenIdToAuction[tokenId].seller != address(0);
+    }
+
+    function setOnwerCut(uint256 cut) public onlyCOO {
+        ownerCut = cut;
+    }
+
+    function getAuction(uint256 tokenId) public view returns(address seller, uint128 price, uint256 ts) {
+        Auction storage auction = tokenIdToAuction[tokenId];
+        seller = auction.seller;
+        price = auction.price;
+        ts = auction.ts;
+    }
+
+    function createAuction(uint256 tokenId, uint256 price, address seller) external whenNotPaused canBeStoredWith128Bits(price) {
         require(msg.sender == address(nonFungibleContract));
         nonFungibleContract.transferFrom(seller, this, tokenId);
 
