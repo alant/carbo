@@ -20,6 +20,7 @@
 		"bin-debug/modals/MenuView.js",
 		"bin-debug/modals/SignUpModal.js",
 		"bin-debug/utils/Cow.js",
+		"bin-debug/LoadingUI.js",
 		"bin-debug/utils/FarmMember.js",
 		"bin-debug/utils/GameConst.js",
 		"bin-debug/views/BackgroundView.js",

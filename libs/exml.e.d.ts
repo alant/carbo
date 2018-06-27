@@ -24,6 +24,10 @@ declare module skins{
 	class ItemRendererSkin extends eui.Skin{
 	}
 }
+declare class MarketplaceSkin extends eui.Skin{
+}
+declare class MarketplaceItemSkin extends eui.Skin{
+}
 declare class MenuViewSkin extends eui.Skin{
 }
 declare module skins{

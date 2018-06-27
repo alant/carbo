@@ -17,7 +17,9 @@
 		"SignUpModal": "resource/eui_skins/SignUpModal.exml",
 		"CowDetailModal": "resource/eui_skins/CowDetailModal.exml",
 		"MenuView": "resource/eui_skins/MenuView.exml",
-		"FarmListModal": "resource/eui_skins/FarmListModal.exml"
+		"FarmListModal": "resource/eui_skins/FarmListModal.exml",
+		"Marketplace": "resource/eui_skins/Marketplace.exml",
+		"MarketplaceItem": "resource/eui_skins/MarketplaceItem.exml"
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
@@ -29,6 +31,8 @@
 		"resource/eui_skins/HScrollBarSkin.exml",
 		"resource/eui_skins/HSliderSkin.exml",
 		"resource/eui_skins/ItemRendererSkin.exml",
+		"resource/eui_skins/Marketplace.exml",
+		"resource/eui_skins/MarketplaceItem.exml",
 		"resource/eui_skins/MenuView.exml",
 		"resource/eui_skins/PanelSkin.exml",
 		"resource/eui_skins/ProgressBarSkin.exml",
