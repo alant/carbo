@@ -78,8 +78,7 @@ contract TestCow is CowBase {
         );
 
         CoinCowCore core = CoinCowCore(nonFungibleContract);
-        uint256 tokenId = core.createCow();
-        core.transfer(msg.sender, tokenId);
+        uint256 tokenId = core.createCow(msg.sender);
 
         cowIdToCow[tokenId] = cow;
         emit CowCreated(tokenId, cow.contractSize);
