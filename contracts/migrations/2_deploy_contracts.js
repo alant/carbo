@@ -7,6 +7,7 @@ const TestCow = artifacts.require('./cows/TestCow.sol');
 
 module.exports = async function(deployer) {
     await deployer.deploy(UserInfo);
+    const userInfo = await UserInfo.deployed();
 
     await deployer.deploy(CoinCowCore);
     const coinCowCore = await CoinCowCore.deployed();
@@ -20,6 +21,7 @@ module.exports = async function(deployer) {
     const testLamaCow = await deployer.deploy(TestCow, coinCowCore.address, farm.address, 'Test LAMA Cow', 'CCC', 'PLATFORM', 'ETH');
 
     fs.writeFileSync(__dirname + '/../build/contract_addresses.json', JSON.stringify({
+        userInfo: userInfo.address,
         coinCowCore: coinCowCore.address,
         farm: farm.address,
         testBtcCow: testBtcCow.address,
