@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const UserInfo = artifacts.require('./UserInfo.sol');
 const CoinCowCore = artifacts.require('./CoinCowCore.sol');
 const Farm = artifacts.require('./Farm.sol');
@@ -12,10 +14,17 @@ module.exports = async function(deployer) {
     await deployer.deploy(Farm, coinCowCore.address);
     const farm = await Farm.deployed();
 
-    await deployer.deploy(TestCow, coinCowCore.address, farm.address, 'Test BTC Cow', 'TH/s', 'POW', 'BTC');
-    await deployer.deploy(TestCow, coinCowCore.address, farm.address, 'Test BCH Cow', 'TH/s', 'POW', 'BCH');
-    await deployer.deploy(TestCow, coinCowCore.address, farm.address, 'Test ETH Cow', 'TH/s', 'POW', 'ETH');
-    await deployer.deploy(TestCow, coinCowCore.address, farm.address, 'Test BTC Cow', 'TH/s', 'POW', 'BTC');
-    await deployer.deploy(TestCow, coinCowCore.address, farm.address, 'Test BTC Cow', 'TH/s', 'POW', 'BTC');
-    await deployer.deploy(TestCow, coinCowCore.address, farm.address, 'Test LAMA Cow', 'CCC', 'PLATFORM', 'ETH');
+    const testBtcCow = await deployer.deploy(TestCow, coinCowCore.address, farm.address, 'Test BTC Cow', 'TH/s', 'POW', 'BTC');
+    const testBchCow = await deployer.deploy(TestCow, coinCowCore.address, farm.address, 'Test BCH Cow', 'TH/s', 'POW', 'BCH');
+    const testEthCow = await deployer.deploy(TestCow, coinCowCore.address, farm.address, 'Test ETH Cow', 'TH/s', 'POW', 'ETH');
+    const testLamaCow = await deployer.deploy(TestCow, coinCowCore.address, farm.address, 'Test LAMA Cow', 'CCC', 'PLATFORM', 'ETH');
+
+    fs.writeFileSync(__dirname + '/../build/contract_addresses.json', JSON.stringify({
+        coinCowCore: coinCowCore.address,
+        farm: farm.address,
+        testBtcCow: testBtcCow.address,
+        testBchCow: testBchCow.address,
+        testEthCow: testEthCow.address,
+        testLamaCow: testLamaCow.address
+    }));
 };
