@@ -129,7 +129,7 @@ class Main extends egret.DisplayObjectContainer {
         const homeButton = new egret.Sprite();
         this.addChild(homeButton);
         homeButton.x = 100;
-        const button2:egret.Bitmap = this.createBitmapByName("icon_milkbottle_png");
+        const button2:egret.Bitmap = this.createBitmapByName("icon_profile_png");
         homeButton.addChild(button2);
         homeButton.touchEnabled = true;
         homeButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showHome,this);
@@ -138,7 +138,7 @@ class Main extends egret.DisplayObjectContainer {
         this.addChild(accountButton);
         accountButton.x = 200;
         //TODO: change icon asset
-        const button3:egret.Bitmap = this.createBitmapByName("icon_profile_png");
+        const button3:egret.Bitmap = this.createBitmapByName("icon_milkbottle_png");
         accountButton.addChild(button3);
         accountButton.touchEnabled = true;
         accountButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showAccount,this);
