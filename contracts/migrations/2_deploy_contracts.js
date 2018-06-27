@@ -15,6 +15,7 @@ module.exports = async function(deployer) {
 
     await deployer.deploy(AuctionHouse, coinCowCore.address);
     const auctionHouse = await AuctionHouse.deployed();
+    await coinCowCore.setAuctionHouse(auctionHouse.address);
 
     await deployer.deploy(Farm, coinCowCore.address);
     const farm = await Farm.deployed();
