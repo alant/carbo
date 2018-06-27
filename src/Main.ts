@@ -35,8 +35,12 @@ class Main extends egret.DisplayObjectContainer {
     }
 
     private bg: BackgroundView;
+    private home: HomeView;
+    private farm: FarmView;
 
     private onAddToStage(event: egret.Event) {
+        GameConst.SCENT_WIDTH = this.stage.stageWidth;
+        GameConst.SCENT_HEIGHT = this.stage.stageHeight;
         GameConst.GamePoxX = 3200;
 
         egret.lifecycle.addLifecycleListener((context) => {
@@ -78,25 +82,78 @@ class Main extends egret.DisplayObjectContainer {
         }
     }
 
-   /**
-    * 显示主页
-    * show home view
-    */
-   private showHome() {
-       this.removeChildren();
-       this.addChild(this.bg);
-       // this.addChild(this.home);
-       GameConst.GamePoxX = 0;
-       this.bg.movebg();
-       // this.addMenu();
-   }
+    /**
+     * 显示主页
+     * show home view
+     */
+    private showHome() {
+        this.removeChildren();
+        this.addChild(this.bg);
+        this.addChild(this.home);
+        GameConst.GamePoxX = 0;
+        this.bg.movebg();
+        this.addMenu();
+    }
+
+    /**
+     * 显示农场
+     * show farm view
+     */
+    private showFarm() {
+        this.removeChildren();
+        this.addChild(this.bg);
+        this.addChild(this.farm);
+        GameConst.GamePoxX = 3200;
+        this.bg.movebg();
+        this.addMenu();
+    }
+
+    private showAccount() {
+        this.removeChildren();
+        this.addChild(this.bg);
+        this.addMenu();
+    }
+    
+    /**
+     * 显示菜单
+     * show menu
+     */
+    private addMenu() {
+        const farmButton = new egret.Sprite();
+        this.addChild(farmButton);
+        const button1:egret.Bitmap = this.createBitmapByName("icon_farm_png");
+        farmButton.addChild(button1);
+        farmButton.touchEnabled = true;
+        farmButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showFarm,this);
+
+        const homeButton = new egret.Sprite();
+        this.addChild(homeButton);
+        homeButton.x = 100;
+        const button2:egret.Bitmap = this.createBitmapByName("icon_home_png");
+        homeButton.addChild(button2);
+        homeButton.touchEnabled = true;
+        homeButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showHome,this);
+
+        const accountButton = new egret.Sprite();
+        this.addChild(accountButton);
+        accountButton.x = 200;
+        //TODO: change icon asset
+        const button3:egret.Bitmap = this.createBitmapByName("icon_home_png");
+        accountButton.addChild(button3);
+        accountButton.touchEnabled = true;
+        accountButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showAccount,this);
+    }
+
     /**
      * 创建游戏场景
      * Create a game scene
      */
     private createGameScene() {
         console.log("cabo createGameScene()");
-        this.bg = new BackgroundView();  
+        this.bg = new BackgroundView();
+        this.home = new HomeView();
+        this.showHome();
+        this.farm = new FarmView();
     }
 
     /**
