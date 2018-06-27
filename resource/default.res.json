@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,cloud3_png,cloud2_png,cloud4_png,cloud_png,bg_jpg,ft_png,cow_bitcoin_png,cow_ether_png,cow_filecoin_png,cow_own_png,icon_farm_png,icon_home_png",
+			"keys": "description_json,cow_bitcoin_png,cow_ether_png,cow_filecoin_png,background_cloud1_png,background_cloud2_png,background_cloud3_png,background_cloud4_png,background_front_png,background_mountains_jpg,cow_lama_png,icon_chat_png,icon_farmlist_png,icon_milkbottle_png,icon_profile_png,icon_share_png,icon_squeezedmilk_png,icons_tools_png",
 			"name": "preload"
 		}
 	],
@@ -10,36 +10,6 @@
 			"name": "description_json",
 			"type": "json",
 			"url": "config/description.json"
-		},
-		{
-			"name": "cloud3_png",
-			"type": "image",
-			"url": "assets/cloud3.png"
-		},
-		{
-			"name": "cloud2_png",
-			"type": "image",
-			"url": "assets/cloud2.png"
-		},
-		{
-			"name": "cloud4_png",
-			"type": "image",
-			"url": "assets/cloud4.png"
-		},
-		{
-			"name": "cloud_png",
-			"type": "image",
-			"url": "assets/cloud.png"
-		},
-		{
-			"name": "bg_jpg",
-			"type": "image",
-			"url": "assets/bg.jpg"
-		},
-		{
-			"name": "ft_png",
-			"type": "image",
-			"url": "assets/ft.png"
 		},
 		{
 			"name": "cow_bitcoin_png",
@@ -57,19 +27,74 @@
 			"url": "assets/cow_filecoin.png"
 		},
 		{
-			"name": "cow_own_png",
+			"name": "background_cloud1_png",
 			"type": "image",
-			"url": "assets/cow_own.png"
+			"url": "assets/background_cloud1.png"
 		},
 		{
-			"name": "icon_farm_png",
+			"name": "background_cloud2_png",
 			"type": "image",
-			"url": "assets/icon_farm.png"
+			"url": "assets/background_cloud2.png"
 		},
 		{
-			"name": "icon_home_png",
+			"name": "background_cloud3_png",
 			"type": "image",
-			"url": "assets/icon_home.png"
+			"url": "assets/background_cloud3.png"
+		},
+		{
+			"name": "background_cloud4_png",
+			"type": "image",
+			"url": "assets/background_cloud4.png"
+		},
+		{
+			"name": "background_front_png",
+			"type": "image",
+			"url": "assets/background_front.png"
+		},
+		{
+			"name": "background_mountains_jpg",
+			"type": "image",
+			"url": "assets/background_mountains.jpg"
+		},
+		{
+			"name": "cow_lama_png",
+			"type": "image",
+			"url": "assets/cow_lama.png"
+		},
+		{
+			"name": "icon_chat_png",
+			"type": "image",
+			"url": "assets/icon_chat.png"
+		},
+		{
+			"name": "icon_farmlist_png",
+			"type": "image",
+			"url": "assets/icon_farmlist.png"
+		},
+		{
+			"name": "icon_milkbottle_png",
+			"type": "image",
+			"url": "assets/icon_milkbottle.png"
+		},
+		{
+			"name": "icon_profile_png",
+			"type": "image",
+			"url": "assets/icon_profile.png"
+		},
+		{
+			"name": "icon_share_png",
+			"type": "image",
+			"url": "assets/icon_share.png"
+		},
+		{
+			"name": "icon_squeezedmilk_png",
+			"type": "image",
+			"url": "assets/icon_squeezedmilk.png"
+		},
+		{
+			"name": "icons_tools_png",
+			"type": "image",
+			"url": "assets/icons_tools.png"
 		}
 	]
 }

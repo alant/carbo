@@ -121,7 +121,7 @@ class Main extends egret.DisplayObjectContainer {
     private addMenu() {
         const farmButton = new egret.Sprite();
         this.addChild(farmButton);
-        const button1:egret.Bitmap = this.createBitmapByName("icon_farm_png");
+        const button1:egret.Bitmap = this.createBitmapByName("icon_farmlist_png");
         farmButton.addChild(button1);
         farmButton.touchEnabled = true;
         farmButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showFarm,this);
@@ -129,7 +129,7 @@ class Main extends egret.DisplayObjectContainer {
         const homeButton = new egret.Sprite();
         this.addChild(homeButton);
         homeButton.x = 100;
-        const button2:egret.Bitmap = this.createBitmapByName("icon_home_png");
+        const button2:egret.Bitmap = this.createBitmapByName("icon_milkbottle_png");
         homeButton.addChild(button2);
         homeButton.touchEnabled = true;
         homeButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showHome,this);
@@ -138,7 +138,7 @@ class Main extends egret.DisplayObjectContainer {
         this.addChild(accountButton);
         accountButton.x = 200;
         //TODO: change icon asset
-        const button3:egret.Bitmap = this.createBitmapByName("icon_home_png");
+        const button3:egret.Bitmap = this.createBitmapByName("icon_profile_png");
         accountButton.addChild(button3);
         accountButton.touchEnabled = true;
         accountButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showAccount,this);
