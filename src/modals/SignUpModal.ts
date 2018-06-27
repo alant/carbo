@@ -27,15 +27,18 @@ class SignUpModal extends eui.Panel implements eui.UIComponent {
 		this.nickname = e.target.text;
 	}
 	private async signup() {
-		const userInfoInstance = await getContractInstance('userInfo');
-
-		const nameBytes = await userInfoInstance.nameOf(web3wrap.eth.defaultAccount);
-		const name = web3wrap.toUtf8(nameBytes);
-
-		if (!name) {
-			await userInfoInstance.register(this.web3.fromUtf8(this.nickname), 0x0);
-		} else {
-			// TODO: go to farm view
+		try {
+			const userInfoInstance = await getContractInstance('userInfo');
+			const nameBytes = await userInfoInstance.nameOf(web3wrap.eth.defaultAccount);
+			const name = web3wrap.toUtf8(nameBytes);
+			if (!name) {
+				await userInfoInstance.register(this.web3.fromUtf8(this.nickname), 0x0);
+			} else {
+				// TODO: go to farm view
+				GameConst.GameInst.showFarm();
+			}
+		} catch (error) {
+			console.log(error);
 			GameConst.GameInst.showFarm();
 		}
 	}
