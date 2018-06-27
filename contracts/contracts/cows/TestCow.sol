@@ -56,6 +56,10 @@ contract TestCow is CowBase {
         return 60 ether;
     }
 
+    function withdrawThreshold() public view returns (uint256) {
+        return 1 ether;
+    }
+
     function milkAvailable(uint256 _tokenId) public view returns (uint256) {
         Cow storage cow = cowIdToCow[_tokenId];
         return 10 ** 18 * (now - cow.lastMilkTime - cow.lastStolen);

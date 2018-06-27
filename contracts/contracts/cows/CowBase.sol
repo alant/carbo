@@ -27,6 +27,7 @@ contract CowBase is CowInterface, AccessControl {
     event CowCreated(uint256 tokenId, uint256 contractSize);
     event Milked(address owner, uint256 tokenId, uint256 amount);
     event Stolen(address user, uint256 tokenId, uint256 amount);
+    event Withdraw(address user, uint256 amount);
 
     function profitUnit() public view returns (string);
     function contractType() public view returns (string);
@@ -35,6 +36,7 @@ contract CowBase is CowInterface, AccessControl {
     function milkThreshold() public view returns (uint256);
     function spillThreshold() public view returns (uint256);
     function stealThreshold() public view returns (uint256);
+    function withdrawThreshold() public view returns (uint256);
 
     function milkAvailable(uint256 _tokenId) public view returns (uint256);
 
@@ -73,6 +75,13 @@ contract CowBase is CowInterface, AccessControl {
         cow.lastStolen = stolen;
 
         emit Stolen(msg.sender, _tokenId, stolen);
+    }
+
+    function withdraw() public {
+        require(balanceOf[msg.sender] >= withdrawThreshold());
+
+        emit Withdraw(msg.sender, balanceOf[msg.sender]);
+        balanceOf[msg.sender] = 0;
     }
 
     function isThisType(uint256 _tokenId) public view returns (bool) {
