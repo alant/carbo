@@ -111,6 +111,7 @@ class Main extends egret.DisplayObjectContainer {
     private showAccount() {
         this.removeChildren();
         this.addChild(this.bg);
+        this.addMenu();
     }
     
     /**
