@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="MenuViewSkin" width="1920" height="100" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
 	<w:Config id="164414fdbd0" ></w:Config>
-	<e:Button id="marketplaceBtn" label="Marketplace" x="40.5" y="7" anchorOffsetX="0" width="231" anchorOffsetY="0" height="86"/>
-	<e:Button id="allFarmsBtn" label="All Farms" x="323.5" y="7" anchorOffsetX="0" width="183" anchorOffsetY="0" height="86"/>
-	<e:Button id="myFarmBtn" label="My Farm" x="558" y="7" anchorOffsetX="0" width="183" anchorOffsetY="0" height="86"/>
-	<e:Button id="gotMilkBtn" label="My Milk" x="792.5" y="7" anchorOffsetX="0" width="183" anchorOffsetY="0" height="86"/>
+	<e:Button id="marketplaceBtn" label="Marketplace" x="514" y="7" anchorOffsetX="0" width="231" anchorOffsetY="0" height="86"/>
+	<e:Button id="allFarmsBtn" label="All Farms" x="281.75" y="7" anchorOffsetX="0" width="183" anchorOffsetY="0" height="86"/>
+	<e:Button id="myFarmBtn" label="My Farm" x="50" y="7" anchorOffsetX="0" width="183" anchorOffsetY="0" height="86"/>
+	<e:Button id="myMilkBtn" label="My Milk" x="794.25" y="7" anchorOffsetX="0" width="183" anchorOffsetY="0" height="86"/>
 	<e:Button id="shareBtn" label="Share" x="1026.67" y="7" anchorOffsetX="0" width="183" anchorOffsetY="0" height="86"/>
 </e:Skin>

@@ -13,9 +13,10 @@
     "useBgColor": true,
     "backgroundAlpha": 100
   },
-  "164414fdbd0": {
-      "path": "modals/MenuView.ts",
-      "class": "MenuView",
-      "parentPath": ""
-    }
+  "164418864b8": {
+    "bindingDataTestObj": []
+  },
+  "164418676eb": {
+    "bindingDataTestObj": []
+  }
 }

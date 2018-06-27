@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="MarketplaceItemSkin" width="400" height="600" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
 	<w:Config id="164418864b8" ></w:Config>
-	<e:Rect width="401" height="554" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0xffffff" locked="true"/>
-	<e:Image id="icon" width="350" height="250" x="22" y="17" source="cow_filecoin_png" locked="true"/>
-	<e:Button id="butbtn" label="Buy" x="107" y="533" anchorOffsetY="0" height="67" anchorOffsetX="0" width="186" locked="true"/>
+	<e:Rect width="349" height="251" x="27" y="17" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x80f2f2"/>
+	<e:Rect width="401" height="554" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0xffffff"/>
+	<e:Button id="butbtn" label="Buy" x="107" y="533" anchorOffsetY="0" height="67" anchorOffsetX="0" width="186"/>
 	
-	<e:Label text="{data.type}" x="27" width="350" y="318.04" textColor="0x0a0808" size="28"/>
+	<e:Label text="{data.name}" x="27" width="350" y="318.04" textColor="0x0a0808" size="28"/>
 	<e:Rect width="350" height="2" x="25.47" y="347.19"/>
 
 	<e:Label text="{data.price}" x="27" width="350" y="379.83" textColor="0x0a0808" size="28"/>
@@ -16,4 +16,5 @@
 
 	<e:Label text="{data.validdays}" x="27" width="350" y="478.65" textColor="0x0a0808" size="28"/>
 	<e:Rect width="350" height="2" x="25.47" y="507.8"/>
+	<e:Image width="350" height="250" x="25" y="16" anchorOffsetX="0" anchorOffsetY="0" source="{data.type}"/>
 </e:Skin>
