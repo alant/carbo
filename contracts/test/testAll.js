@@ -51,6 +51,13 @@ contract('TestAll', async accounts => {
             const tokenId = await coinCowCore.totalSupply();
             assert.equal(tokenId, 1);
             assert.equal(await coinCowCore.ownerOf(tokenId), accounts[0]);
+
+            await coinCowCore.createAuction(tokenId, web3.toWei(1, 'ether'));
+            assert.equal(await auctionHouse.isOnAuction(tokenId), true);
+
+            const [seller, price] = await auctionHouse.getAuction(tokenId);
+            assert.equal(seller, accounts[0]);
+            assert.equal(price, web3.toWei(1, 'ether'));
         });
     });
 });
