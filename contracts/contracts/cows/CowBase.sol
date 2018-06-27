@@ -22,8 +22,9 @@ contract CowBase is CowInterface, AccessControl {
     mapping(address => uint256) public balanceOf;
     mapping(uint256 => Cow) cowIdToCow;
 
+    event CowCreated(uint256 tokenId, uint256 contractSize);
     event Milked(address owner, uint256 tokenId, uint256 amount);
-    event Stolen(address owner, uint256 tokenId, uint256 amount);
+    event Stolen(address user, uint256 tokenId, uint256 amount);
 
     function profitUnit() public view returns (string);
     function contractType() public view returns (string);
@@ -46,7 +47,10 @@ contract CowBase is CowInterface, AccessControl {
 
         balanceOf[msg.sender] += available;
         cow.lastMilkTime = uint64(now);
+        cow.totalMilked += available;
         cow.lastStolen = 0;
+
+        emit Milked(msg.sender, _tokenId, available);
     }
 
     function steal(uint256 _tokenId) public {
@@ -59,7 +63,10 @@ contract CowBase is CowInterface, AccessControl {
 
         uint256 stolen = available - spillThreshold();
         balanceOf[msg.sender] += stolen;
+        cow.totalStolen += stolen;
         cow.lastStolen = stolen;
+
+        emit Stolen(msg.sender, _tokenId, stolen);
     }
 
     function isThisType(uint256 _tokenId) public view returns (bool) {

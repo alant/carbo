@@ -1,5 +1,6 @@
 pragma solidity ^0.4.23;
 
+import "../CoinCowCore.sol";
 import "./CowBase.sol";
 
 contract TestCow is CowBase {
@@ -58,6 +59,25 @@ contract TestCow is CowBase {
     function milkAvailable(uint256 _tokenId) public view returns (uint256) {
         Cow storage cow = cowIdToCow[_tokenId];
         return 10 ** 18 * (now - cow.lastMilkTime - cow.lastStolen);
+    }
+
+    function createCow() public {
+        Cow memory cow = Cow(
+            true,
+            1 ether,
+            0,
+            uint64(now),
+            uint64(now),
+            uint64(now + 90 days),
+            0,
+            0
+        );
+
+        CoinCowCore core = CoinCowCore(nonFungibleContract);
+        uint256 tokenId = core.createCow();
+
+        cowIdToCow[tokenId] = cow;
+        emit CowCreated(tokenId, cow.contractSize);
     }
 }
 
