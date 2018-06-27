@@ -280,6 +280,11 @@
 			"name": "on_png",
 			"type": "image",
 			"url": "assets/ToggleSwitch/on.png"
+		},
+		{
+			"name": "person_icon_png",
+			"type": "image",
+			"url": "assets/person_icon.png"
 		}
 	]
 }

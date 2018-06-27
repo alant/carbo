@@ -1,0 +1,12 @@
+{
+    "1643fde1b1b": {
+        "path": "..\\resource\\eui_skins\\MainView.ts",
+        "class": "MainView",
+        "parentPath": ""
+    },
+    "1643ffadc70": {
+        "path": "..\\resource\\assets\\SignUpModal.ts",
+        "class": "SignUpModal",
+        "parentPath": "resource/eui_skins/PanelSkin.exml"
+    }
+}

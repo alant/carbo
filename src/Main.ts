@@ -57,6 +57,11 @@ class Main extends egret.DisplayObjectContainer {
         egret.lifecycle.onResume = () => {
             egret.ticker.resume();
         }
+        //inject the custom material parser
+        //注入自定义的素材解析器
+        let assetAdapter = new AssetAdapter();
+        egret.registerImplementation("eui.IAssetAdapter", assetAdapter);
+        egret.registerImplementation("eui.IThemeAdapter", new ThemeAdapter());
 
         this.runGame().catch(e => {
             console.log(e);
