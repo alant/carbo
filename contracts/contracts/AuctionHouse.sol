@@ -37,6 +37,10 @@ contract AuctionHouse is AccessControl {
         return tokenIdToAuction[tokenId].seller != address(0);
     }
 
+    function setOnwerCut(uint256 cut) public onlyCOO {
+        ownerCut = cut;
+    }
+
     function getAuction(uint256 tokenId) public view returns(address seller, uint128 price, uint256 ts) {
         Auction storage auction = tokenIdToAuction[tokenId];
         seller = auction.seller;

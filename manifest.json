@@ -6,7 +6,8 @@
 		"libs/modules/tween/tween.js",
 		"libs/modules/assetsmanager/assetsmanager.js",
 		"libs/modules/promise/promise.js",
-		"libs/web3/web3.js"
+		"libs/web3/web3.js",
+		"libs/web3-api-wrap/web3-api-wrap.js"
 	],
 	"game": [
 		"bin-debug/modals/SignUpModal.js",

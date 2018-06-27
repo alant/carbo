@@ -33,6 +33,10 @@
     {
       "name": "web3",
       "path": "./libs/web3"
+    },
+    {
+      "name": "web3-api-wrap",
+      "path": "./libs/web3-api-wrap"
     }
   ]
 }

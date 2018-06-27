@@ -52,7 +52,7 @@ class FarmView extends egret.Sprite {
 	}
 	/**
 	* 创建奶牛
-	* Create cows
+	* Create cowsilvjkrvflbgttrnlhibeijchgdrjeluteihklkkinnrgkhrjdfkvnukijinbefft
 	*/
 	private async createCow(cowX: number, cowY: number, cow: Cow, cowIndex: number) {
 		// draw cow
