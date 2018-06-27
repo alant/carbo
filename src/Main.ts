@@ -37,6 +37,7 @@ class Main extends egret.DisplayObjectContainer {
     private bg: BackgroundView;
     private home: HomeView;
     private farm: FarmView;
+    private web3: any;
 
     private onAddToStage(event: egret.Event) {
         GameConst.SCENT_WIDTH = this.stage.stageWidth;
@@ -113,7 +114,7 @@ class Main extends egret.DisplayObjectContainer {
         this.addChild(this.bg);
         this.addMenu();
     }
-    
+
     /**
      * 显示菜单
      * show menu
@@ -121,7 +122,7 @@ class Main extends egret.DisplayObjectContainer {
     private addMenu() {
         const farmButton = new egret.Sprite();
         this.addChild(farmButton);
-        const button1:egret.Bitmap = this.createBitmapByName("icon_farm_png");
+        const button1:egret.Bitmap = this.createBitmapByName("icon_farmlist_png");
         farmButton.addChild(button1);
         farmButton.touchEnabled = true;
         farmButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showFarm,this);
@@ -129,7 +130,7 @@ class Main extends egret.DisplayObjectContainer {
         const homeButton = new egret.Sprite();
         this.addChild(homeButton);
         homeButton.x = 100;
-        const button2:egret.Bitmap = this.createBitmapByName("icon_home_png");
+        const button2:egret.Bitmap = this.createBitmapByName("icon_milkbottle_png");
         homeButton.addChild(button2);
         homeButton.touchEnabled = true;
         homeButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showHome,this);
@@ -138,7 +139,7 @@ class Main extends egret.DisplayObjectContainer {
         this.addChild(accountButton);
         accountButton.x = 200;
         //TODO: change icon asset
-        const button3:egret.Bitmap = this.createBitmapByName("icon_home_png");
+        const button3:egret.Bitmap = this.createBitmapByName("icon_profile_png");
         accountButton.addChild(button3);
         accountButton.touchEnabled = true;
         accountButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.showAccount,this);
@@ -154,6 +155,23 @@ class Main extends egret.DisplayObjectContainer {
         this.home = new HomeView();
         this.showHome();
         this.farm = new FarmView();
+
+        // var Web3 = require('web3');
+        // var web3 = new Web3();
+        // web3.setProvider(new web3.providers.HttpProvider("http://localhost:8545"));
+        var web3Provider;
+        if (typeof window['web3'] !== 'undefined') {
+            console.log("nice web3Provider set");
+            web3Provider = window['web3'].currentProvider;
+            this.web3  = new window["Web3"](web3Provider);
+            let web3 = this.web3;
+            
+
+        }else{
+            console.log("web3 provider not found!");
+            // web3Provider = new window["Web3"].providers.HttpProvider("http://119.29.129.14:8545");
+        }
+
     }
 
     /**

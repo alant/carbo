@@ -11,9 +11,9 @@ class BackgroundView extends egret.Sprite {
 	private ft: egret.Bitmap;
     private posX: number;
     private initView() {
-		this.bg = this.createBitmapByName("bg_jpg");
+		this.bg = this.createBitmapByName("background_mountains_jpg");
         this.addChild(this.bg);
-        this.ft = this.createBitmapByName("ft_png");
+        this.ft = this.createBitmapByName("background_front_png");
         this.addChild(this.ft);
         let stageW = GameConst.SCENT_WIDTH;
         let stageH = GameConst.SCENT_HEIGHT;
@@ -22,19 +22,19 @@ class BackgroundView extends egret.Sprite {
         this.posX = GameConst.GamePoxX;
         this.ft.x = -this.posX;
         // draw cloud
-        const cloud1 = this.createBitmapByName("cloud_png");
+        const cloud1 = this.createBitmapByName("background_cloud1_png");
         this.addChild(cloud1);
         cloud1.x = 200;
         cloud1.y = 100;
-        const cloud2 = this.createBitmapByName("cloud2_png");
+        const cloud2 = this.createBitmapByName("background_cloud2_png");
         this.addChild(cloud2);
         cloud2.x = 500;
         cloud2.y = 150;
-        const cloud3 = this.createBitmapByName("cloud3_png");
+        const cloud3 = this.createBitmapByName("background_cloud3_png");
         this.addChild(cloud3);
         cloud3.x = 1200;
         cloud3.y = 130;
-        const cloud4 = this.createBitmapByName("cloud4_png");
+        const cloud4 = this.createBitmapByName("background_cloud4_png");
         this.addChild(cloud4);
         cloud4.x = 1600;
         cloud4.y = 200;
