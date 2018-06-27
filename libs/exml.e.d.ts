@@ -8,6 +8,10 @@ declare module skins{
 }
 declare class CowDetailModalSkin extends eui.Skin{
 }
+declare class FarmListItemSkin extends eui.Skin{
+}
+declare class FarmListModalSkin extends eui.Skin{
+}
 declare module skins{
 	class HScrollBarSkin extends eui.Skin{
 	}

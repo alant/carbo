@@ -15,13 +15,16 @@
         "eui.ItemRenderer": "resource/eui_skins/ItemRendererSkin.exml",
         "MainView": "resource/eui_skins/MainView.exml",
         "SignUpModal": "resource/eui_skins/SignUpModal.exml",
-        "CowDetailModal": "resource/eui_skins/CowDetailModal.exml"
+        "CowDetailModal": "resource/eui_skins/CowDetailModal.exml",
+        "MenuView": "resource/eui_skins/MenuView.exml"
     },
     "autoGenerateExmlsList": true,
     "exmls": [
         "resource/eui_skins/ButtonSkin.exml",
         "resource/eui_skins/CheckBoxSkin.exml",
         "resource/eui_skins/CowDetailModal.exml",
+        "resource/eui_skins/FarmListItem.exml",
+        "resource/eui_skins/FarmListModal.exml",
         "resource/eui_skins/HScrollBarSkin.exml",
         "resource/eui_skins/HSliderSkin.exml",
         "resource/eui_skins/ItemRendererSkin.exml",

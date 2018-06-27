@@ -63,6 +63,10 @@ contract AuctionHouse is AccessControl {
         emit AuctionCancelled(_tokenId);
     }
 
+    function withdrawBalance() public onlyCFO {
+        address(nonFungibleContract).transfer(address(this).balance);
+    }
+
     /// @dev Computes owner's cut of a sale.
     /// @param _price - Sale price of NFT.
     function _computeCut(uint256 _price) internal view returns (uint256) {

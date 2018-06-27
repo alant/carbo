@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="CowDetailModalSkin" minHeight="230" minWidth="450" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
     <e:Image left="0" right="1" bottom="0"  top="0" source="border_png" scale9Grid="2,2,12,12"  anchorOffsetY="0" anchorOffsetX="0" fillMode="scale" width="940" height="550"/>
-	<e:Button id="signupButton0" label="Squezz" bottom="45" horizontalCenter="-242" height="60" anchorOffsetX="0" width="263"/>
-    <e:Button id="signupButton" label="Sell" bottom="45" horizontalCenter="172" height="60" anchorOffsetX="0" width="263"/>
+	<e:Button id="squeezeButton" label="Squeeze!" bottom="45" horizontalCenter="-242" height="60" anchorOffsetX="0" width="263"/>
+    <e:Button id="sellButton" label="Sell" bottom="45" horizontalCenter="172" height="60" anchorOffsetX="0" width="263"/>
 	<e:Label text="Enter a nickname:" x="453" y="40" textColor="0x000000" anchorOffsetX="0" width="210" anchorOffsetY="0" height="49" verticalAlign="middle" textAlign="right" size="24"/>
 	<e:Label text="Enter a nickname:" x="453" y="89" textColor="0x000000" anchorOffsetX="0" width="210" anchorOffsetY="0" height="49" verticalAlign="middle" textAlign="right" size="24"/>
+	<e:Rect width="350" height="250" x="50" y="50" anchorOffsetX="0" anchorOffsetY="0" fillColor="0xcdf3fa"/>
 	<w:Config id="164409a89bd" ></w:Config>
 </e:Skin>
