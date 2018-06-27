@@ -1,11 +1,13 @@
 pragma solidity ^0.4.23;
 
-import "../AccessControl.sol";
+import "../Farm.sol";
 import "./CowInterface.sol";
 
 contract CowBase is CowInterface, AccessControl {
-    constructor(address coreAddress) public AccessControl(coreAddress) {
+    Farm farm;
 
+    constructor(address coreAddress, address farmAddress) public AccessControl(coreAddress) {
+        farm = Farm(farmAddress);
     }
 
     struct Cow {
@@ -25,6 +27,7 @@ contract CowBase is CowInterface, AccessControl {
     event CowCreated(uint256 tokenId, uint256 contractSize);
     event Milked(address owner, uint256 tokenId, uint256 amount);
     event Stolen(address user, uint256 tokenId, uint256 amount);
+    event Withdraw(address user, uint256 amount);
 
     function profitUnit() public view returns (string);
     function contractType() public view returns (string);
@@ -33,6 +36,7 @@ contract CowBase is CowInterface, AccessControl {
     function milkThreshold() public view returns (uint256);
     function spillThreshold() public view returns (uint256);
     function stealThreshold() public view returns (uint256);
+    function withdrawThreshold() public view returns (uint256);
 
     function milkAvailable(uint256 _tokenId) public view returns (uint256);
 
@@ -42,6 +46,8 @@ contract CowBase is CowInterface, AccessControl {
 
         address owner = nonFungibleContract.ownerOf(_tokenId);
         require(msg.sender == owner);
+        require(farm.userToFarmId(msg.sender) > 0);
+
         uint256 available = milkAvailable(_tokenId);
         require(available >= milkThreshold());
 
@@ -56,8 +62,10 @@ contract CowBase is CowInterface, AccessControl {
     function steal(uint256 _tokenId) public {
         Cow storage cow = cowIdToCow[_tokenId];
         require(cow.exists);
+        address owner = nonFungibleContract.ownerOf(_tokenId);
+        require(farm.userToFarmId(msg.sender) > 0);
+        require(farm.userToFarmId(owner) == farm.userToFarmId(msg.sender));
 
-//        address owner = nonFungibleContract.ownerOf(_tokenId);
         uint256 available = milkAvailable(_tokenId);
         require(available >= stealThreshold());
 
@@ -67,6 +75,13 @@ contract CowBase is CowInterface, AccessControl {
         cow.lastStolen = stolen;
 
         emit Stolen(msg.sender, _tokenId, stolen);
+    }
+
+    function withdraw() public {
+        require(balanceOf[msg.sender] >= withdrawThreshold());
+
+        emit Withdraw(msg.sender, balanceOf[msg.sender]);
+        balanceOf[msg.sender] = 0;
     }
 
     function isThisType(uint256 _tokenId) public view returns (bool) {
