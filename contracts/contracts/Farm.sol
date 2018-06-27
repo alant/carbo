@@ -3,6 +3,9 @@ pragma solidity ^0.4.23;
 import "./AccessControl.sol";
 
 contract Farm is AccessControl {
+    event Created(address owner, uint256 farmId, bytes32 name);
+    event Joined(address user, uint256 farmId);
+
     struct FarmInfo {
         address owner;
         bytes32 name;
@@ -25,7 +28,7 @@ contract Farm is AccessControl {
         creationFee = fee;
     }
 
-    function total() public returns(uint256) {
+    function total() public view returns(uint256) {
         return farms.length - 1;
     }
 
@@ -37,6 +40,8 @@ contract Farm is AccessControl {
         farmId = farms.push(FarmInfo(msg.sender, name, 1)) - 1;
         userToFarmId[msg.sender] = farmId;
         farmNameToId[name] = farmId;
+
+        emit Created(msg.sender, farmId, name);
     }
 
     function join(uint256 farmId) public whenNotPaused {
@@ -52,6 +57,8 @@ contract Farm is AccessControl {
 
         farms[farmId].size++;
         userToFarmId[msg.sender] = farmId;
+
+        emit Joined(msg.sender, farmId);
     }
 
     function withdrawBalance() public onlyCFO {
