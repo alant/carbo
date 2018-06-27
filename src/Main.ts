@@ -42,7 +42,7 @@ class Main extends egret.DisplayObjectContainer {
     private onAddToStage(event: egret.Event) {
         GameConst.SCENT_WIDTH = this.stage.stageWidth;
         GameConst.SCENT_HEIGHT = this.stage.stageHeight;
-        GameConst.GamePoxX = 3200;
+        GameConst.GamePoxX = 0;
 
         egret.lifecycle.addLifecycleListener((context) => {
             // custom lifecycle plugin
@@ -123,7 +123,7 @@ class Main extends egret.DisplayObjectContainer {
         this.removeChildren();
         this.addChild(this.bg);
         this.addChild(this.farm);
-        GameConst.GamePoxX = 3200;
+        GameConst.GamePoxX = 2000;
         this.bg.movebg();
         this.addMenu();
     }

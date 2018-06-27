@@ -91,8 +91,8 @@ class FarmView extends egret.Sprite {
 			this.removeChild(this.cowDetail);
 		}
 		const modal = new CowDetailModal(this.cows[cowIndex]);
-		modal.x = GameConst.SCENT_WIDTH / 2 - 570;
-        modal.y = GameConst.SCENT_HEIGHT / 2 - 270;
+		modal.x = GameConst.SCENT_WIDTH / 2 - 600;
+        modal.y = GameConst.SCENT_HEIGHT / 2 - 440;
 		this.cowDetail = modal;
 		this.addChild(this.cowDetail);
     }
