@@ -29,6 +29,10 @@ class HomeView extends egret.Sprite {
 
     private showSignUpModal() {
         console.log("click");
+        const modal = new SignUpModal();
+        modal.x = GameConst.SCENT_WIDTH / 2 - 570;
+        modal.y = GameConst.SCENT_HEIGHT / 2 - 270;
+        this.addChild(modal);
     }
 
 	/**
