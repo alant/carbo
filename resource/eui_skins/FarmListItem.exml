@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="FarmListItemSkin" width="400" height="300" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="16440c8652c" ></w:Config>
+	<e:Rect width="399" height="268" x="0" y="0" fillColor="0xffffff" anchorOffsetX="0" anchorOffsetY="0" locked="true"/>
+	<e:Rect width="400" height="42" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x66aa3d" locked="true"/>
+	<e:Button id="JoinBtn" label="Join" x="104.5" y="241" anchorOffsetX="0" width="190" anchorOffsetY="0" height="54" locked="true"/>
+	<e:Label id="title" text="{data.location}" x="115" y="6.5" anchorOffsetX="0.5" anchorOffsetY="0.5" locked="true"/>
+	<e:Image width="234" height="174" x="155.5" y="54" anchorOffsetX="0" anchorOffsetY="0" source="cow_filecoin_png" locked="true"/>
+	
+	<e:Label id="owner" text="{data.owner}" x="37" y="111"  textColor="0x020202"/>
+	<e:Rect width="168" height="2" x="37" y="141"/>
+	
+	<e:Label id="memebers" text="{data.memebers}" x="37" y="157"  textColor="0x020202"/>
+	<e:Rect width="168" height="2" x="37" y="188"/>
+	
+	<e:Label id="cows" text="{data.cows}" x="37" y="195"   textColor="0x020202"/>
+	<e:Rect width="168" height="2" x="37" y="226"/>
+</e:Skin>

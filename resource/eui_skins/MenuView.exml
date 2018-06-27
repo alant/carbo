@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="MenuViewSkin" width="1920" height="100" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="164414fdbd0" ></w:Config>
+	<e:Button label="Button" x="40.5" y="7" anchorOffsetX="0" width="183" anchorOffsetY="0" height="86"/>
+	<e:Button label="Button" x="243" y="7" anchorOffsetX="0" width="183" anchorOffsetY="0" height="86"/>
+	<e:Button label="Button" x="446" y="7" anchorOffsetX="0" width="183" anchorOffsetY="0" height="86"/>
+	<e:Button label="Button" x="649" y="7" anchorOffsetX="0" width="183" anchorOffsetY="0" height="86"/>
+	<e:Button label="Button" x="852" y="7" anchorOffsetX="0" width="183" anchorOffsetY="0" height="86"/>
+	<e:Button label="Button" x="1054.5" y="7" anchorOffsetX="0" width="183" anchorOffsetY="0" height="86"/>
+</e:Skin>
