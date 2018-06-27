@@ -5,6 +5,5 @@
 	<e:TextInput id="inputNickname" width="712" height="51" x="138.5" y="249.5" anchorOffsetX="0" anchorOffsetY="0" enabled="true"/>
 	<e:Label text="Enter a nickname:" x="262" y="146" textColor="0x000000" anchorOffsetX="0" width="447" anchorOffsetY="0" height="49" verticalAlign="middle" textAlign="center"/>
 	<e:Image width="50" height="50" x="87" y="249" anchorOffsetX="0" anchorOffsetY="0" source="person_icon_png"/>
-
 	<w:Config id="1643ffadc70" ></w:Config>
 </e:Skin>

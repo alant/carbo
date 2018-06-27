@@ -17,8 +17,8 @@ class HomeView extends egret.Sprite {
 		label.y = GameConst.SCENT_HEIGHT / 2 - 200;
         // add button
         var button = new eui.Button();
-        button.width = 200;
-        button.height = 50;
+        button.width = 500;
+        button.height = 60;
         button.x = GameConst.SCENT_WIDTH / 2 - 100;
         button.y = GameConst.SCENT_HEIGHT / 2 + 100;
         button.label = "Start Mooring";

@@ -25,5 +25,4 @@ class SignUpModal extends eui.Panel implements eui.UIComponent {
 	private signup() {
 		console.log("signup " + this.nickname);
 	}
-	
 }

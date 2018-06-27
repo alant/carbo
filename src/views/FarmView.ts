@@ -7,7 +7,7 @@ class FarmView extends egret.Sprite {
 		super();
 		this.initView();
 	}
-
+	private cowDetail: CowDetailModal;
 	private initView() {
 		this.createCows().catch(e => {
 			console.log(e);
@@ -59,7 +59,7 @@ class FarmView extends egret.Sprite {
 		milkBar.graphics.drawCircle(cowX + 15, cowY - 35, 15);
 		milkBar.graphics.drawCircle(cowX + 335, cowY - 35, 15);
 		milkBar.graphics.endFill();
-		const fillColor = cow.milk < 100 ? 0x0000ff : 0xff0000;
+		const fillColor = cow.milk < 100 ? 0xae99cf : 0xec3333;
 		milkBar.graphics.beginFill( fillColor, cow.milk/100);
 		milkBar.graphics.drawCircle(cowX + 15, cowY - 35, 15);
 		milkBar.graphics.drawRect( cowX + 15, cowY - 50, 320 * cow.milk / 100, 30 );
@@ -87,41 +87,11 @@ class FarmView extends egret.Sprite {
 	}
     private handleCowClick(cowIndex: number, cowX: number, cowY: number, e: egret.TouchEvent) {
         console.log(`cow ${cowIndex} got clicked!`);
-		if(this.milkingMenu) {
-			this.removeChild(this.milkingMenu);
+		if(this.cowDetail) {
+			this.removeChild(this.cowDetail);
 		}
-        // console.log(`cow ${cowIndex} got clicked!`);
-		var theme = new eui.Theme(`resource/default.thm.json`, this.stage);
-        //创建一个 Group
-        var myGroup = new eui.Group();
-        myGroup.x = cowX > 1400 ? 1400 : cowX;
-        myGroup.y = cowY - 400;
-        myGroup.width = 500;
-        myGroup.height = 300;
-        this.myGroup = myGroup;
-        this.addChild(myGroup);
-        // 绘制矩形用于显示 myGroup 的轮廓
-        var outline:egret.Shape = new egret.Shape;
-        outline.graphics.lineStyle(3,0x00ff00);
-        outline.graphics.beginFill(0x1122cc,0);
-        outline.graphics.drawRect(0, 0, 500, 300);
-        outline.graphics.endFill();
-        myGroup.addChild(outline);
-
-		var label:eui.Label = new eui.Label();
-		label.text = "Milking Menu";
-		myGroup.addChild(label);
-		var button = new eui.Button();
-		button.label = "Milk";
-		myGroup.addChild(button);
-		var button2 = new eui.Button();
-		button2.label = "Cancel";
-		myGroup.addChild(button2);
-		button2.touchEnabled = true;
-		button2.addEventListener(egret.TouchEvent.TOUCH_TAP,() => { console.log("remove this window"); },this);
-
-        //使用绝对布局，会忽略 myGroup 中按钮的自定义坐标
-        myGroup.layout = new eui.VerticalLayout();
-		this.milkingMenu = myGroup;
+		const modal = new CowDetailModal(this.cows[cowIndex]);
+		this.cowDetail = modal;
+		this.addChild(this.cowDetail);
     }
 }
