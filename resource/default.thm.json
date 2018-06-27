@@ -16,7 +16,8 @@
 		"MainView": "resource/eui_skins/MainView.exml",
 		"SignUpModal": "resource/eui_skins/SignUpModal.exml",
 		"CowDetailModal": "resource/eui_skins/CowDetailModal.exml",
-		"MenuView": "resource/eui_skins/MenuView.exml"
+		"MenuView": "resource/eui_skins/MenuView.exml",
+		"FarmListModal": "resource/eui_skins/FarmListModal.exml"
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
