@@ -65,10 +65,12 @@ class Main extends egret.DisplayObjectContainer {
     }
 
     private async runGame() {
-        await this.loadResource()
+        await this.loadResource();
+        await this.loadTheme();
         this.createGameScene();
     }
 
+    // load resource
     private async loadResource() {
         try {
             const loadingView = new LoadingUI();
@@ -76,6 +78,18 @@ class Main extends egret.DisplayObjectContainer {
             await RES.loadConfig("resource/default.res.json", "resource/");
             await RES.loadGroup("preload", 0, loadingView);
             this.stage.removeChild(loadingView);
+        }
+        catch (e) {
+            console.error(e);
+        }
+    }
+
+    // load theme
+    private async loadTheme() {
+        try {
+            // load skin theme configuration file, you can manually modify the file. And replace the default skin.
+            //加载皮肤主题配置文件,可以手动修改这个文件。替换默认皮肤。
+            let theme = new eui.Theme("resource/default.thm.json", this.stage);
         }
         catch (e) {
             console.error(e);

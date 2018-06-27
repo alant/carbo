@@ -2,19 +2,18 @@
 	"initial": [
 		"libs/modules/egret/egret.js",
 		"libs/modules/egret/egret.web.js",
-		"libs/modules/game/game.js",
+		"libs/modules/eui/eui.js",
 		"libs/modules/tween/tween.js",
 		"libs/modules/assetsmanager/assetsmanager.js",
-		"libs/modules/promise/promise.js",
-		"libs/modules/eui/eui.js"
+		"libs/modules/promise/promise.js"
 	],
 	"game": [
+		"bin-debug/utils/GameConst.js",
 		"bin-debug/LoadingUI.js",
-		"bin-debug/Main.js",
 		"bin-debug/Platform.js",
 		"bin-debug/utils/Cow.js",
 		"bin-debug/utils/FarmMember.js",
-		"bin-debug/utils/GameConst.js",
+		"bin-debug/Main.js",
 		"bin-debug/views/BackgroundView.js",
 		"bin-debug/views/FarmListView.js",
 		"bin-debug/views/FarmView.js",
