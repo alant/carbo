@@ -37,6 +37,7 @@ class Main extends egret.DisplayObjectContainer {
     private bg: BackgroundView;
     private home: HomeView;
     private farm: FarmView;
+    private members: FarmMemberListView;
     private web3: any;
 
     private onAddToStage(event: egret.Event) {
@@ -123,6 +124,7 @@ class Main extends egret.DisplayObjectContainer {
         this.removeChildren();
         this.addChild(this.bg);
         this.addChild(this.farm);
+        this.addChild(this.members);
         GameConst.GamePoxX = 3200;
         this.bg.movebg();
         this.addMenu();
@@ -172,8 +174,9 @@ class Main extends egret.DisplayObjectContainer {
         console.log("cabo createGameScene()");
         this.bg = new BackgroundView();
         this.home = new HomeView();
-        this.showHome();
         this.farm = new FarmView();
+        this.members = new FarmMemberListView();
+        this.showHome();
 
         var web3Provider;
         if (typeof window['web3'] !== 'undefined') {
