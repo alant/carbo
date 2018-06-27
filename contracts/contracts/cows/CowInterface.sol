@@ -4,6 +4,6 @@ contract CowInterface {
     function implementsCow() public pure returns (bool);
 
     function enabled() public view returns (bool);
-    function erc721() public view returns (address);
+    function coinCowAddress() public view returns (address);
     function name() public view returns (string);
 }

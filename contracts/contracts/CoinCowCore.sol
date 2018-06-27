@@ -6,12 +6,17 @@ import "./cows/CowInterface.sol";
 contract CoinCowCore is CoinCow721 {
     mapping(address => bool) registeredCowInterface;
 
+    constructor() public {
+        ceoAddress = msg.sender;
+        cooAddress = msg.sender;
+    }
+
     function registerCowInterface(address cowInterfaceAddress) public onlyCOO {
-        require(!registeredCowInterface[cowInterface]);
+        require(!registeredCowInterface[cowInterfaceAddress]);
 
         CowInterface cowInterface = CowInterface(cowInterfaceAddress);
         require(cowInterface.implementsCow());
-        require(cowInterface.erc721() == address(this));
+        require(cowInterface.coinCowAddress() == address(this));
 
         registeredCowInterface[cowInterface] = true;
     }
@@ -20,7 +25,7 @@ contract CoinCowCore is CoinCow721 {
         CowInterface cowInterface = CowInterface(msg.sender);
         require(cowInterface.implementsCow());
         require(cowInterface.enabled());
-        require(cowInterface.erc721() == address(this));
+        require(cowInterface.coinCowAddress() == address(this));
 
         tokenId = cows.push(Cow(msg.sender, uint64(now))) - 1;
     }
