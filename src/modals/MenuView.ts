@@ -14,7 +14,7 @@ class MenuView extends eui.Component implements  eui.UIComponent {
 	{
 		super.partAdded(partName,instance);
 		if(instance == this.marketplaceBtn){
-			this.marketplaceBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.main.showAccount,this.main);
+			this.marketplaceBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.main.showMarket,this.main);
 		}else if (instance ==this.allFarmsBtn ){
 			this.allFarmsBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.main.showFarmList,this.main);
 		}else if (instance ==this.myFarmBtn ){

@@ -6,5 +6,15 @@
         "path": "modals/MenuView.ts",
         "class": "MenuView",
         "parentPath": ""
+    },
+    "164418676eb": {
+        "path": "modals/Marketplace.ts",
+        "class": "Marketplace",
+        "parentPath": ""
+    },
+    "164418864b8": {
+        "path": "modals/MarketplaceItem.ts",
+        "class": "MarketplaceItem",
+        "parentPath": ""
     }
 }
