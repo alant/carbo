@@ -66,10 +66,12 @@ class Main extends egret.DisplayObjectContainer {
     }
 
     private async runGame() {
-        await this.loadResource()
+        await this.loadResource();
+        await this.loadTheme();
         this.createGameScene();
     }
 
+    // load resource
     private async loadResource() {
         try {
             const loadingView = new LoadingUI();
@@ -77,6 +79,18 @@ class Main extends egret.DisplayObjectContainer {
             await RES.loadConfig("resource/default.res.json", "resource/");
             await RES.loadGroup("preload", 0, loadingView);
             this.stage.removeChild(loadingView);
+        }
+        catch (e) {
+            console.error(e);
+        }
+    }
+
+    // load theme
+    private async loadTheme() {
+        try {
+            // load skin theme configuration file, you can manually modify the file. And replace the default skin.
+            //加载皮肤主题配置文件,可以手动修改这个文件。替换默认皮肤。
+            let theme = new eui.Theme("resource/default.thm.json", this.stage);
         }
         catch (e) {
             console.error(e);
@@ -165,8 +179,38 @@ class Main extends egret.DisplayObjectContainer {
             web3Provider = window['web3'].currentProvider;
             this.web3  = new window["Web3"](web3Provider);
             let web3 = this.web3;
-            
+            web3.eth.defaultAccount = web3.eth.accounts[0];
+            const address = "0x5a16ef04f793a5f1878ae451bae06592515bd3c3";
+            console.log(`defaultAcct: ${web3.eth.defaultAccount}`);
+            const abi = [
+                {
+                    "inputs": [],
+                    "payable": false,
+                    "stateMutability": "nonpayable",
+                    "type": "constructor"
+                },
+                {
+                    "constant": true,
+                    "inputs": [],
+                    "name": "greet",
+                    "outputs": [
+                        {
+                            "name": "",
+                            "type": "bytes32"
+                        }
+                    ],
+                    "payable": false,
+                    "stateMutability": "view",
+                    "type": "function"
+                }
+            ];
 
+            const instance = web3.eth.contract(abi).at(address);
+            console.log(instance);
+            instance.greet(function(err, receipt){
+                // console.log(arguments);
+                console.log(`receipt: ${web3.toAscii(receipt)}`);
+            });
         }else{
             console.log("web3 provider not found!");
             // web3Provider = new window["Web3"].providers.HttpProvider("http://119.29.129.14:8545");
