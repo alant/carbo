@@ -36,6 +36,7 @@ class Main extends egret.DisplayObjectContainer {
 
     private bg: BackgroundView;
     private home: HomeView;
+    private farm: FarmView;
 
     private onAddToStage(event: egret.Event) {
         GameConst.SCENT_WIDTH = this.stage.stageWidth;
@@ -81,33 +82,37 @@ class Main extends egret.DisplayObjectContainer {
         }
     }
 
-   /**
-    * 显示主页
-    * show home view
-    */
-   private showHome() {
-       this.removeChildren();
-       this.addChild(this.bg);
-       this.addChild(this.home);
-       GameConst.GamePoxX = 0;
-       this.bg.movebg();
-       this.addMenu();
-   }
+    /**
+     * 显示主页
+     * show home view
+     */
+    private showHome() {
+        this.removeChildren();
+        this.addChild(this.bg);
+        this.addChild(this.home);
+        GameConst.GamePoxX = 0;
+        this.bg.movebg();
+        this.addMenu();
+    }
 
-   /**
-    * 显示农场
-    * show farm view
-    */
-   private showFarm() {
-     console.log(`show farm clicked`);
-   }
-   
-   private showAccount() {
-       this.removeChildren();
-       this.addChild(this.bg);
-       this.addMenu();
-   }
+    /**
+     * 显示农场
+     * show farm view
+     */
+    private showFarm() {
+        this.removeChildren();
+        this.addChild(this.bg);
+        this.addChild(this.farm);
+        GameConst.GamePoxX = 3200;
+        this.bg.movebg();
+        this.addMenu();
+    }
 
+    private showAccount() {
+        this.removeChildren();
+        this.addChild(this.bg);
+    }
+    
     /**
      * 显示菜单
      * show menu
@@ -147,6 +152,7 @@ class Main extends egret.DisplayObjectContainer {
         this.bg = new BackgroundView();
         this.home = new HomeView();
         this.showHome();
+        this.farm = new FarmView();
     }
 
     /**
