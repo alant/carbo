@@ -61,7 +61,7 @@ contract TestCow is CowBase {
         return 10 ** 18 * (now - cow.lastMilkTime - cow.lastStolen);
     }
 
-    function createCow() public {
+    function createCow() public onlyCOO {
         Cow memory cow = Cow(
             true,
             1 ether,
@@ -75,6 +75,7 @@ contract TestCow is CowBase {
 
         CoinCowCore core = CoinCowCore(nonFungibleContract);
         uint256 tokenId = core.createCow();
+        core.transfer(msg.sender, tokenId);
 
         cowIdToCow[tokenId] = cow;
         emit CowCreated(tokenId, cow.contractSize);
