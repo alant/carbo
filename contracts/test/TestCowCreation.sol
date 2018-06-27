@@ -19,7 +19,7 @@ contract EmptyCowInterface is CowInterface {
 
     function testCreate() public returns(uint256 tokenId) {
         CoinCowCore core = CoinCowCore(nonFungibleContract);
-        tokenId = core.createCow();
+        tokenId = core.createCow(msg.sender);
     }
 }
 
