@@ -14,8 +14,8 @@ contract Farm is AccessControl {
 
     uint256 creationFee;
     uint256 sizeLimit;
-    mapping(address => uint256) userToFarmId;
-    mapping(bytes32 => uint256) farmNameToId;
+    mapping(address => uint256) public userToFarmId;
+    mapping(bytes32 => uint256) public farmNameToId;
     FarmInfo[] farms;
 
     constructor(address core) public AccessControl(core) {

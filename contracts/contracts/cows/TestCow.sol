@@ -9,7 +9,7 @@ contract TestCow is CowBase {
     string myContractType;
     string myContractUnit;
 
-    constructor(address coreAddress, string name, string profitUnit, string contractType, string contractUnit) public CowBase(coreAddress) {
+    constructor(address coreAddress, address farmAddress, string name, string profitUnit, string contractType, string contractUnit) public CowBase(coreAddress, farmAddress) {
         myName = name;
         myProfitUnit = profitUnit;
         myContractType = contractType;
@@ -83,19 +83,19 @@ contract TestCow is CowBase {
 }
 
 contract TestPowCow is TestCow {
-    constructor(address coreAddress) public TestCow(coreAddress, "Test PoW Cow", "TH/s", "POW", "TPOW") {
+    constructor(address coreAddress, address farmAddress) public TestCow(coreAddress, farmAddress, "Test PoW Cow", "TH/s", "POW", "TPOW") {
 
     }
 }
 
 contract TestPosCow is TestCow {
-    constructor(address coreAddress) public TestCow(coreAddress, "Test PoS Cow", "TPOS", "POS", "TPOS") {
+    constructor(address coreAddress, address farmAddress) public TestCow(coreAddress, farmAddress, "Test PoS Cow", "TPOS", "POS", "TPOS") {
 
     }
 }
 
 contract TestPlatformCow is TestCow {
-    constructor(address coreAddress) public TestCow(coreAddress, "Test Platform Cow", "CCC", "PLATFORM", "CCC") {
+    constructor(address coreAddress, address farmAddress) public TestCow(coreAddress, farmAddress, "Test Platform Cow", "CCC", "PLATFORM", "CCC") {
 
     }
 }

@@ -1,11 +1,13 @@
 pragma solidity ^0.4.23;
 
-import "../AccessControl.sol";
+import "../Farm.sol";
 import "./CowInterface.sol";
 
 contract CowBase is CowInterface, AccessControl {
-    constructor(address coreAddress) public AccessControl(coreAddress) {
+    Farm farm;
 
+    constructor(address coreAddress, address farmAddress) public AccessControl(coreAddress) {
+        farm = Farm(farmAddress);
     }
 
     struct Cow {
@@ -42,6 +44,8 @@ contract CowBase is CowInterface, AccessControl {
 
         address owner = nonFungibleContract.ownerOf(_tokenId);
         require(msg.sender == owner);
+        require(farm.userToFarmId(msg.sender) > 0);
+
         uint256 available = milkAvailable(_tokenId);
         require(available >= milkThreshold());
 
@@ -56,8 +60,10 @@ contract CowBase is CowInterface, AccessControl {
     function steal(uint256 _tokenId) public {
         Cow storage cow = cowIdToCow[_tokenId];
         require(cow.exists);
+        address owner = nonFungibleContract.ownerOf(_tokenId);
+        require(farm.userToFarmId(msg.sender) > 0);
+        require(farm.userToFarmId(owner) == farm.userToFarmId(msg.sender));
 
-//        address owner = nonFungibleContract.ownerOf(_tokenId);
         uint256 available = milkAvailable(_tokenId);
         require(available >= stealThreshold());
 
